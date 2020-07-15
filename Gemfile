@@ -12,11 +12,12 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 
 group :development, :test do
-  gem 'dotenv-rails'
-
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
 end
 
 group :development do
