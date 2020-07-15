@@ -14,8 +14,11 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'graphql'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
+
+  gem 'pry-byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
+
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'
   gem 'rubocop-rails'
