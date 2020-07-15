@@ -1,0 +1,64 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/heroku_clear_tasks.rake'
+
+Metrics/AbcSize:
+  Max: 15
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+
+Layout/LineLength:
+  Max: 220
+
+Style/HashEachMethods:
+  Enabled: true
+  Safe: true
+
+Style/HashTransformKeys:
+  Enabled: true
+  Safe: true
+
+Style/HashTransformValues:
+  Enabled: true
+  Safe: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
