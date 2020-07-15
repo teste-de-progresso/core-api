@@ -9,7 +9,6 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'log/**/*'
-    - 'config/**/*'
     - 'node_modules/**/*'
     - 'lib/tasks/heroku_clear_tasks.rake'
 
@@ -63,3 +62,6 @@ Layout/EmptyLinesAroundAttributeAccessor:
 
 Style/SlicingWithRange:
   Enabled: true
+
+Rails/FilePath:
+  Enabled: false
