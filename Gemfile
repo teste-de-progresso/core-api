@@ -12,6 +12,8 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 
 gem 'graphql'
+gem 'devise'
+gem 'devise-jwt'
 
 group :development, :test do
   gem 'dotenv-rails'
