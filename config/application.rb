@@ -21,7 +21,7 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+Dotenv::Railtie.load unless Rails.env.production?
 
 module ProgressTest
   class Application < Rails::Application
