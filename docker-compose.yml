@@ -1,0 +1,22 @@
+version: "3.8"
+services: 
+  web:
+    image: teste-progresso-backend
+    ports: 
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@database:5432 
+    depends_on: 
+      - "database"
+    volumes:
+      - ".:/home/teste-progresso"
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes: 
+      - db:/var/lib/postgresql
+volumes: 
+  db: {}
