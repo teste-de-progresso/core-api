@@ -10,11 +10,11 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.jwt do |jwt|
-    if Rails.env.development? || Rails.env.test?
-      jwt.secret = '1cb26f40-498b-4f72-a00a-e8633abc5957'
-    else
-      jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
-    end
+    jwt.secret = if Rails.env.development? || Rails.env.test?
+                   '1cb26f40-498b-4f72-a00a-e8633abc5957'
+                 else
+                   ENV['DEVISE_JWT_SECRET_KEY']
+                 end
   end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
