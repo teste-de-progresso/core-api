@@ -5,12 +5,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Null
-
-  def jwt_payload
-    {
-      user_id: id,
-      email: email
-    }
-  end
+         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 end
