@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-
-SIMPLECOV_MIN_COVERAGE = 80.0
-
 RSpec.configure do |config|
-  SimpleCov.start
-
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
