@@ -2,14 +2,43 @@
 
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :all_objective_questions,
+          [ObjectiveType],
+          null: true,
+          description: 'Get all objective questions without pagination.'
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-                               description: 'An example field added by the generator'
-    def test_field
-      'Hello World!'
+    field :search_objective_questions,
+          [ObjectiveType],
+          null: true,
+          description: 'Search by objective questions by title, body or status.' do
+            argument :title, String, required: false
+            argument :body, String, required: false
+            argument :status, String, required: false
+          end
+
+    field :get_objective_question,
+          ObjectiveType,
+          null: true,
+          description: 'Get one objective question by ID.' do
+            argument :id, ID, required: true
+          end
+
+    def search_objective_questions(title: nil, body: nil, status: nil)
+      params = {}
+      params[:title] = title if title
+      params[:body] = body if body
+      params[:status] = status if status
+
+      query = Objective.ransack(params)
+      query.result(distinct: true)
+    end
+
+    def get_objective_question(id:)
+      Objective.find(id)
+    end
+
+    def all_objective_questions
+      Objective.all
     end
   end
 end

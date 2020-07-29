@@ -16,6 +16,8 @@ gem 'devise-jwt'
 gem 'enumerize'
 gem 'graphql'
 
+gem 'ransack'
+
 group :development, :test do
   gem 'dotenv-rails'
 

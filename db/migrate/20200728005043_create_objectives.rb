@@ -8,6 +8,7 @@ class CreateObjectives < ActiveRecord::Migration[6.0]
       t.jsonb :alternatives
       t.string :correct_answer, limit: 1
       t.string :status
+      t.references :user
 
       t.timestamps
     end
