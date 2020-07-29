@@ -15,6 +15,10 @@ AllCops:
 Metrics/AbcSize:
   Max: 15
 
+Metrics/BlockLength:
+  Exclude:
+    -  'config/initializers/*'
+
 Metrics/CyclomaticComplexity:
   Max: 8
 
