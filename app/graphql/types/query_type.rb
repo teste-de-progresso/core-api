@@ -10,8 +10,7 @@ module Types
     field :search_objective_questions,
           [ObjectiveType],
           null: true,
-          description: 'Search by objective questions by title, body or status.' do
-            argument :title, String, required: false
+          description: 'Search by objective questions by body or status.' do
             argument :body, String, required: false
             argument :status, String, required: false
           end
@@ -23,14 +22,13 @@ module Types
             argument :id, ID, required: true
           end
 
-    def search_objective_questions(title: nil, body: nil, status: nil)
+    def search_objective_questions(body: nil, status: nil)
       params = {}
-      params[:title] = title if title
       params[:body] = body if body
       params[:status] = status if status
 
       query = Objective.ransack(params)
-      query.result(distinct: true)
+      query.result
     end
 
     def get_objective_question(id:)

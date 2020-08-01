@@ -3,7 +3,6 @@
 module Types
   class ObjectiveType < Types::BaseObject
     field :id, ID, null: false
-    field :title, String, null: true
     field :body, String, null: true
     field :alternatives, [Types::AlternativeType], null: true
     field :correct_answer, String, null: true

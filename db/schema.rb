@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_005043) do
   end
 
   create_table "objectives", force: :cascade do |t|
-    t.string "title"
     t.text "body"
     t.jsonb "alternatives"
     t.string "correct_answer", limit: 1

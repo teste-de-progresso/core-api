@@ -12,7 +12,6 @@ module Mutations
 
     class ObjectiveInput < Types::BaseInputObject
       argument :id, ID, required: false
-      argument :title, String, required: true
       argument :body, String, required: true
       argument :alternatives, [AlternativeInput], required: false # TODO: alternatives should be mandatory
       argument :correct_answer, String, required: true
@@ -34,11 +33,10 @@ module Mutations
     end
 
     def define_params(objective_question, objective_input)
-      objective_question.title = objective_input[:title] if objective_input[:title]
-      objective_question.body = objective_input[:body] if objective_input[:title]
-      objective_question.alternatives = objective_input[:alternatives] if objective_input[:title]
-      objective_question.correct_answer = objective_input[:correct_answer] if objective_input[:title]
-      objective_question.status = objective_input[:status] if objective_input[:title]
+      objective_question.body = objective_input[:body] if objective_input[:body]
+      objective_question.alternatives = objective_input[:alternatives] if objective_input[:alternatives]
+      objective_question.correct_answer = objective_input[:correct_answer] if objective_input[:correct_answer]
+      objective_question.status = objective_input[:status] if objective_input[:status]
 
       # TODO: connect the logged user to the created question.
       # objective_question.user_id = current_user.id unless objective_input[:id]

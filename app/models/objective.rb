@@ -9,5 +9,5 @@ class Objective < ApplicationRecord
   enumerize :status, in: %i[draft pending finished]
 
   # TODO: alternatives should be mandatory
-  validates :title, :body, presence: true
+  validates :body, :status, presence: true
 end
