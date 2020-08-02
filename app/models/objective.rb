@@ -10,4 +10,19 @@ class Objective < ApplicationRecord
 
   # TODO: alternatives should be mandatory
   validates :body, :status, presence: true
+
+  before_save :update_introduction
+
+  private
+
+  def update_introduction
+    without_html_tags = body.gsub(%r{</?[^>]+?>}, '')
+    without_breaklines = without_html_tags.gsub(/\s+/, '')
+
+    self.introduction = if without_breaklines.size <= 14
+                          without_breaklines
+                        else
+                          without_breaklines[0, 14]
+                        end
+  end
 end

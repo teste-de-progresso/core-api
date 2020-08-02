@@ -3,12 +3,12 @@
 module Types
   class QueryType < Types::BaseObject
     field :all_objective_questions,
-          [ObjectiveType],
+          [Questions::ObjectiveType],
           null: true,
           description: 'Get all objective questions without pagination.'
 
     field :search_objective_questions,
-          [ObjectiveType],
+          [Questions::ObjectiveType],
           null: true,
           description: 'Search by objective questions by body or status.' do
             argument :body, String, required: false
@@ -16,7 +16,7 @@ module Types
           end
 
     field :get_objective_question,
-          ObjectiveType,
+          Questions::ObjectiveType,
           null: true,
           description: 'Get one objective question by ID.' do
             argument :id, ID, required: true
