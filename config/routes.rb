@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  post 'picture/upload'
+  post '/', to: 'graphql#execute'
+
   devise_for :users,
              path: '',
              path_names: {
@@ -12,5 +15,4 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                registrations: 'registrations'
              }
-  post '/', to: 'graphql#execute'
 end
