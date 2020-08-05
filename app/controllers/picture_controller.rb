@@ -7,13 +7,17 @@ class PictureController < ApplicationController
       filename: params[:upload].original_filename
     )
 
-    return unless @upload.save!
-
-    render json: {
-      uploaded: true,
-      fileName: @upload.filename,
-      url: url
-    }.to_json
+    if @upload.save!
+      render json: {
+        uploaded: true,
+        fileName: @upload.filename,
+        url: url
+      }.to_json
+    else
+      render json: {
+        uploaded: false
+      }
+    end
   end
 
   private
