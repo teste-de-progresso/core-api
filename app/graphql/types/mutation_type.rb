@@ -2,6 +2,6 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :save_objective, mutation: Mutations::Questions::SaveObjective
+    field :save_objective, mutation: Mutations::Questions::Objective::Save
   end
 end

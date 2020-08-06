@@ -8,9 +8,6 @@ class Objective < ApplicationRecord
   enumerize :correct_answer, in: %i[a b c d e]
   enumerize :status, in: %i[draft pending finished]
 
-  # TODO: alternatives should be mandatory
-  validates :body, :status, presence: true
-
   before_save :update_introduction
 
   private
