@@ -6,15 +6,13 @@ module Mutations
       class Save < BaseMutation
         graphql_name 'saveObjective'
 
-        field :payload, Types::Questions::Objective, null: true
-        field :errors, [Types::ResponseErrorType], null: true
+        type Types::Questions::ObjectiveResponse
 
         argument :objective_question, Inputs::Questions::Objective::Save, required: true
 
         def resolve(objective_question:)
           @question = find_or_initialize_question(objective_question[:id])
-
-          define_params(objective_question)
+          @question.update(objective_question.to_h)
 
           return { payload: @question } if @question.valid? && @question.save!
 
@@ -23,13 +21,6 @@ module Mutations
 
         def find_or_initialize_question(id)
           id ? ::Objective.find(id) : ::Objective.new
-        end
-
-        def define_params(objective_question)
-          @question.body = objective_question[:body] || @question.body
-          @question.alternatives = objective_question[:alternatives] || @question.body
-          @question.explanation = objective_question[:explanation] || @question.body
-          @question.status = objective_question[:status] || @question.body
         end
       end
     end
