@@ -18,6 +18,8 @@ gem 'graphql'
 
 gem 'ransack'
 
+gem 'sentry-raven'
+
 group :development, :test do
   gem 'dotenv-rails'
 
