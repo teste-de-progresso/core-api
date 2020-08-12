@@ -17,6 +17,8 @@ module Inputs
         argument :authorship_year, String, required: false
         argument :source, String, required: false
         argument :own, Boolean, required: false
+
+        argument :user_id, Integer, required: false
       end
     end
   end
