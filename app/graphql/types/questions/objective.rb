@@ -18,6 +18,8 @@ module Types
       field :source, String, null: true
       field :own, Boolean, null: true
 
+      field :user_id, Integer, null: true
+
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     end
