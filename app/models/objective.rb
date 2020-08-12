@@ -5,8 +5,9 @@ class Objective < ApplicationRecord
 
   extend Enumerize
 
-  enumerize :correct_answer, in: %i[a b c d e]
   enumerize :status, in: %i[draft pending finished]
+  enumerize :difficulty, in: %i[easy medium hard]
+  enumerize :bloom_taxonomy, in: %i[remember understand apply analyze evaluate create]
 
   before_save :update_introduction
 
