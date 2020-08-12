@@ -10,7 +10,14 @@ module Types
       field :body, String, null: true
       field :alternatives, [Alternative], null: true
       field :explanation, String, null: true
-      field :status, String, null: true
+      field :status, Types::Questions::Status, null: true
+
+      field :difficulty, Types::Questions::Difficulty, null: true
+      field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
+      field :authorship_year, String, null: true
+      field :source, String, null: true
+      field :own, Boolean, null: true
+
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     end
