@@ -16,6 +16,7 @@ gem 'devise-jwt'
 gem 'enumerize'
 gem 'graphql'
 
+gem 'kaminari'
 gem 'ransack'
 
 gem 'sentry-raven'
