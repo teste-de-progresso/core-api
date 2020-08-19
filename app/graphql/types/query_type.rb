@@ -13,6 +13,8 @@ module Types
           description: 'Search by objective questions by body or status.' do
             argument :body, String, required: false
             argument :status, String, required: false
+            argument :user_id, Integer, required: true
+            argument :page, Integer, required: true
           end
 
     field :get_objective_question,
@@ -22,13 +24,13 @@ module Types
             argument :id, ID, required: true
           end
 
-    def search_objective_questions(body: nil, status: nil)
+    def search_objective_questions(body: nil, status: nil, user_id:, page:)
       params = {}
       params[:body] = body if body
       params[:status] = status if status
+      params[:user_id] = user_id
 
-      query = Objective.ransack(params)
-      query.result
+      Objective.where(params).page(page).limit(20)
     end
 
     def get_objective_question(id:)
