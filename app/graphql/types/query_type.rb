@@ -6,10 +6,8 @@ module Types
           [Questions::Objective],
           null: true,
           description: 'Search by objective questions by body or status.' do
-            argument :body, String, required: false
-            argument :status, String, required: false
             argument :page, Integer, required: true
-            argument :limit, Integer, required: false
+            argument :limit, Integer, required: true
             argument :user_id, Integer, required: true
           end
 
@@ -20,19 +18,12 @@ module Types
             argument :id, ID, required: true
           end
 
-    def search_objective_questions(body:, status:, user_id:, page:, limit: 20)
-      params = {}
-      params[:body] = body if body
-      params[:status] = status if status
-      params[:user_id] = user_id
-
-      Objective.where(params)
-               .page(page)
-               .limit(limit)
+    def search_objective_questions(user_id:, page:, limit:)
+      Objective.where(user_id: user_id).page(page).limit(limit)
     end
 
     def get_objective_question(id:)
-      Objective.find(id)
+      Objective.find_by(id: id)
     end
   end
 end
