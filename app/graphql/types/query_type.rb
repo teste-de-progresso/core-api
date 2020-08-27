@@ -19,7 +19,7 @@ module Types
           end
 
     def search_objective_questions(user_id:, page:, limit:)
-      Objective.where(user_id: user_id).page(page).limit(limit)
+      Objective.where(user_id: user_id).page(page).per(limit)
     end
 
     def get_objective_question(id:)
