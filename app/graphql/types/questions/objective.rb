@@ -12,7 +12,7 @@ module Types
       field :explanation, String, null: true
       field :references, String, null: true
       field :status, Types::Questions::Status, null: true
-
+      field :check_type, Types::Questions::CheckType, null: true
       field :difficulty, Types::Questions::Difficulty, null: true
       field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
       field :authorship_year, String, null: true

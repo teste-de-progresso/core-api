@@ -11,6 +11,7 @@ module Inputs
         argument :alternatives, [Alternative], required: false
         argument :explanation, String, required: false
         argument :references, String, required: false
+        argument :check_type, Types::Questions::CheckType, required: false
         argument :status, Types::Questions::Status, required: false
         argument :difficulty, Types::Questions::Difficulty, required: false
         argument :bloom_taxonomy, Types::Questions::BloomTaxonomy, required: false
