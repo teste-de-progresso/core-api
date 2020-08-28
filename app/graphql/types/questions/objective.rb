@@ -10,6 +10,7 @@ module Types
       field :body, String, null: true
       field :alternatives, [Alternative], null: true
       field :explanation, String, null: true
+      field :references, String, null: true
       field :status, Types::Questions::Status, null: true
 
       field :difficulty, Types::Questions::Difficulty, null: true

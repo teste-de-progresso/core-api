@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_203831) do
+ActiveRecord::Schema.define(version: 2020_08_27_231839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_203831) do
     t.string "authorship_year"
     t.string "source"
     t.boolean "own"
+    t.text "references"
     t.index ["user_id"], name: "index_objectives_on_user_id"
   end
 

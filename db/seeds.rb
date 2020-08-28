@@ -15,20 +15,20 @@ user = User.create!(
 
 10.times do
   Objective.create!(
-    body: "<p>questão lalala</p>",
+    body: '<p>questão lalala</p>',
     alternatives:
-      [{"text"=>"<p>alternativa correta</p>", "correct"=>true},
-      {"text"=>"", "correct"=>false},
-      {"text"=>"", "correct"=>false},
-      {"text"=>"", "correct"=>false},
-      {"text"=>"", "correct"=>false}],
-    status: "draft",
+      [{ 'text' => '<p>alternativa correta</p>', 'correct' => true },
+       { 'text' => '', 'correct' => false },
+       { 'text' => '', 'correct' => false },
+       { 'text' => '', 'correct' => false },
+       { 'text' => '', 'correct' => false }],
+    status: 'draft',
     user_id: user.id,
-    introduction: "questãolalala",
-    explanation: "<p>explicação da alternativa correta</p>",
-    difficulty: "easy",
-    bloom_taxonomy: "remember",
-    authorship_year: "2020",
+    introduction: 'questãolalala',
+    explanation: '<p>explicação da alternativa correta</p>',
+    difficulty: 'easy',
+    bloom_taxonomy: 'remember',
+    authorship_year: '2020',
     source: nil,
     own: false
   )
