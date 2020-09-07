@@ -14,8 +14,8 @@ class Objective < ApplicationRecord
   private
 
   def update_introduction
-    without_html_tags = body.gsub(%r{</?[^>]+?>}, '')
-    without_breaklines = without_html_tags.gsub(/\s+/, '')
+    without_html_tags = body.gsub(%r{</?[^>]+?>}, ' ')
+    without_breaklines = without_html_tags.gsub(/\s+/, ' ')
 
     self.introduction = if without_breaklines.size <= 14
                           without_breaklines
