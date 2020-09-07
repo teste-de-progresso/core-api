@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PictureController < ApplicationController
+class AssetsController < ApplicationController
   def upload
     @upload = Upload.new(
       file: params[:upload],
