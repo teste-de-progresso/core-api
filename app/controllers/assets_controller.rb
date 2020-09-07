@@ -11,7 +11,7 @@ class AssetsController < ApplicationController
       render json: {
         uploaded: true,
         fileName: @upload.filename,
-        url: url
+        url: url_for(@upload.file)
       }.to_json
     else
       render json: {
@@ -23,18 +23,13 @@ class AssetsController < ApplicationController
   def update_user_avatar
     if current_user.update(avatar: params[:upload])
       render json: {
-        uploaded: true
+        uploaded: true,
+        url: url_for(current_user.avatar)
       }
     else
       render json: {
         uploaded: false
       }
     end
-  end
-
-  private
-
-  def url
-    ENV['HOSTNAME'] + rails_blob_path(@upload.file)
   end
 end
