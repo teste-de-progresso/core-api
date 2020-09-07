@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  post 'picture/upload'
+  post '/picture/upload', to: 'assets#upload' # DEPRECATED
+  post '/upload', to: 'assets#upload'
   post '/', to: 'graphql#execute'
 
   devise_for :users,
