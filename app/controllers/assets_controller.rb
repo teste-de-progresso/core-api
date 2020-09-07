@@ -20,6 +20,18 @@ class AssetsController < ApplicationController
     end
   end
 
+  def update_user_avatar
+    if current_user.update(avatar: params[:upload])
+      render json: {
+        uploaded: true
+      }
+    else
+      render json: {
+        uploaded: false
+      }
+    end
+  end
+
   private
 
   def url
