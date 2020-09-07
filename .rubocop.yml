@@ -13,7 +13,7 @@ AllCops:
     - 'lib/tasks/heroku_clear_tasks.rake'
 
 Metrics/AbcSize:
-  Max: 15
+  Max: 25
   Exclude:
     - 'db/**/*'
 

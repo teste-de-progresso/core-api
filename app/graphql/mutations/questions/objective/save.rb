@@ -12,15 +12,20 @@ module Mutations
 
         def resolve(objective_question:)
           @question = find_or_initialize_question(objective_question[:id])
-          @question.update(objective_question.to_h)
 
-          return { payload: @question } if @question.valid? && @question.save!
+          return { payload: @question } if @question.update(objective_question.to_h)
 
           { errors: ::ResponseError.from_active_record_model(@question) }
         end
 
         def find_or_initialize_question(id)
-          id ? ::Objective.find(id) : ::Objective.new
+          user_id = context[:current_user].id
+
+          if id
+            ::Objective.find_by(id: id, user_id: user_id)
+          else
+            ::Objective.new(user_id: user_id)
+          end
         end
       end
     end
