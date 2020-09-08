@@ -8,6 +8,8 @@ module Types
 
       def avatar_url
         Rails.application.routes.url_helpers.rails_blob_url(object.avatar, only_path: true)
+      rescue NoMethodError
+        nil
       end
     end
   end
