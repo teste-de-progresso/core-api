@@ -2,10 +2,7 @@
 
 class AssetsController < ApplicationController
   def upload
-    @upload = Upload.new(
-      file: params[:upload],
-      user_id: current_user.id
-    )
+    @upload = Upload.new(file: params[:upload])
 
     if @upload.save!
       render json: {
