@@ -16,4 +16,5 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :objectives, dependent: :destroy
+  has_many :uploads, dependent: :restrict_with_error
 end
