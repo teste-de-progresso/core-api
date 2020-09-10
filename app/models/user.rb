@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include ActiveStorageSupport::SupportForBase64
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
@@ -14,6 +14,6 @@ class User < ApplicationRecord
     }
   end
 
-  has_one_attached :avatar
+  has_one_base64_attached :avatar
   has_many :objectives, dependent: :destroy
 end
