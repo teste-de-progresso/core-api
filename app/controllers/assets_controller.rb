@@ -15,7 +15,7 @@ class AssetsController < ApplicationController
   end
 
   def update_user_avatar
-    if current_user.update(avatar: params[:upload])
+    if current_user.avatar.attach({ data: params[:upload] })
       render json: { updated: true }
     else
       render json: { updated: false }
