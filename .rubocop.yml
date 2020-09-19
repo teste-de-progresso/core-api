@@ -152,3 +152,6 @@ Rails/ShortI18n:
 
 Rails/WhereExists:
   Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
