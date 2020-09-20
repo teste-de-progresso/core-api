@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class Objective < ApplicationRecord
-  belongs_to :user, optional: true
-
   extend Enumerize
+
+  belongs_to :user
+  belongs_to :subject, optional: true
 
   enumerize :status, in: %i[draft pending finished]
   enumerize :difficulty, in: %i[easy medium hard]

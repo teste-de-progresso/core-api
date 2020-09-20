@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_19_211917) do
+ActiveRecord::Schema.define(version: 2020_09_20_203355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 2020_09_19_211917) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "axes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "sub_category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_axes_on_name", unique: true
+    t.index ["sub_category_id"], name: "index_axes_on_sub_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "jwt_blacklists", force: :cascade do |t|
@@ -60,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_09_19_211917) do
     t.boolean "own"
     t.text "references"
     t.string "check_type"
+    t.bigint "subject_id"
+    t.index ["subject_id"], name: "index_objectives_on_subject_id"
     t.index ["user_id"], name: "index_objectives_on_user_id"
   end
 
@@ -75,6 +93,24 @@ ActiveRecord::Schema.define(version: 2020_09_19_211917) do
     t.bigint "role_id", null: false
     t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
     t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+    t.index ["name"], name: "index_sub_categories_on_name", unique: true
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "axis_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["axis_id"], name: "index_subjects_on_axis_id"
+    t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -97,4 +133,8 @@ ActiveRecord::Schema.define(version: 2020_09_19_211917) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "axes", "sub_categories"
+  add_foreign_key "objectives", "subjects"
+  add_foreign_key "sub_categories", "categories"
+  add_foreign_key "subjects", "axes"
 end
