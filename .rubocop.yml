@@ -20,6 +20,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     -  'config/initializers/*'
+    -  'lib/tasks/*'
 
 Metrics/CyclomaticComplexity:
   Max: 8

@@ -15,6 +15,8 @@ class Objective < ApplicationRecord
   private
 
   def update_introduction
+    return if body.nil?
+
     without_html_tags = body.gsub(%r{</?[^>]+?>}, ' ')
     without_breaklines = without_html_tags.gsub(/\s+/, ' ')
 
