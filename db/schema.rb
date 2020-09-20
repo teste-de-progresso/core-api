@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_215615) do
+ActiveRecord::Schema.define(version: 2020_09_19_211917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,20 @@ ActiveRecord::Schema.define(version: 2020_09_09_215615) do
     t.text "references"
     t.string "check_type"
     t.index ["user_id"], name: "index_objectives_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_roles_on_name", unique: true
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
+    t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
   end
 
   create_table "uploads", force: :cascade do |t|

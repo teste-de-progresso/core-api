@@ -16,6 +16,8 @@ gem 'aws-sdk-s3', require: false
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'pundit'
+
 gem 'enumerize'
 gem 'graphql'
 
@@ -40,6 +42,10 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

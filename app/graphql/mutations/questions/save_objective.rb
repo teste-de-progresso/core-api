@@ -10,21 +10,16 @@ module Mutations
       argument :objective_question, Inputs::Questions::SaveObjective, required: true
 
       def resolve(objective_question:)
-        @question = find_or_initialize_question(objective_question[:id])
+        input = objective_question.to_h
+        user = context[:current_user]
 
-        return { payload: @question } if @question.update(objective_question.to_h)
+        question = input[:id] ? ::Objective.find_by(id: input[:id]) : ::Objective.new(user_id: user.id)
+        policy = QuestionPolicy.new(user, question)
 
-        { errors: ::ResponseError.from_active_record_model(@question) }
-      end
+        return {} unless input[:id] ? policy.update? : policy.create?
+        return { payload: question } if question.update(input)
 
-      def find_or_initialize_question(id)
-        user_id = context[:current_user].id
-
-        if id
-          ::Objective.find_by(id: id, user_id: user_id)
-        else
-          ::Objective.new(user_id: user_id)
-        end
+        { errors: ::ResponseError.from_active_record_model(question) }
       end
     end
   end
