@@ -14,7 +14,7 @@ module Types
       end
 
       def roles
-        object.roles.map { |r| r.name }
+        object.roles.map(&:name)
       end
     end
   end

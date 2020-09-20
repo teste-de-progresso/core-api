@@ -11,7 +11,7 @@ module Types
     field :my_user, Users::Details, null: false
 
     def objective_questions
-      Objective.all
+      context[:current_user].objectives
     end
 
     def objective_question(id:)

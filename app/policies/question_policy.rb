@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class QuestionPolicy < ApplicationPolicy
-  PERMISSIONS = [
-    :index,
-    :show,
-    :create,
-    :new,
-    :update,
-    :edit,
-    :destroy
+  PERMISSIONS = %i[
+    index
+    show
+    create
+    new
+    update
+    edit
+    destroy
   ].freeze
 
   def index?
@@ -41,6 +41,5 @@ class QuestionPolicy < ApplicationPolicy
 
   def permissions
     PERMISSIONS.select { |method| send("#{method}?") }
-    byebug
   end
 end
