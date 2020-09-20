@@ -18,8 +18,8 @@ module Types
         argument :limit, Integer, required: true
       end
 
-      def payload(page:, limit:, where: {})
-        questions = object.where(where.to_h).page(page).per(limit)
+      def payload(page:, limit:)
+        questions = object.page(page).per(limit)
 
         {
           nodes: questions,

@@ -2,7 +2,9 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :objective_questions, Questions::ObjectiveCollection, null: false
+    field :objective, Questions::ObjectiveCollection, null: false do
+      argument :where, Inputs::Questions::ObjectiveWhere, required: false
+    end
 
     field :objective_question, Questions::Objective, null: true do
       argument :id, ID, required: true
@@ -10,8 +12,8 @@ module Types
 
     field :my_user, Users::Details, null: false
 
-    def objective_questions
-      context[:current_user].objectives
+    def objective(where: nil)
+      Resolvers::ObjectiveResolver.new(context, where).payload
     end
 
     def objective_question(id:)
