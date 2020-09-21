@@ -13,13 +13,12 @@ module Types
       graphql_name 'ObjectiveCollectionType'
 
       field :payload, ObjectiveCollectionPage, null: false do
-        argument :where, Inputs::Questions::ObjectiveWhere, required: false
         argument :page, Integer, required: true
         argument :limit, Integer, required: true
       end
 
-      def payload(page:, limit:, where: {})
-        questions = object.where(where.to_h).page(page).per(limit)
+      def payload(page:, limit:)
+        questions = object.page(page).per(limit)
 
         {
           nodes: questions,

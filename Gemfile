@@ -21,11 +21,7 @@ gem 'pundit'
 
 gem 'enumerize'
 gem 'graphql'
-
 gem 'kaminari'
-gem 'ransack'
-
-gem 'sentry-raven'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -51,6 +47,10 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.0'
+end
+
+group :production do
+  gem 'sentry-raven'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

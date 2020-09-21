@@ -21,7 +21,11 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope.all
+      if user.role?(:teacher)
+        scope.where(user_id: user.id)
+      else
+        scope.all
+      end
     end
   end
 end
