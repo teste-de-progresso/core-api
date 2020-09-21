@@ -36,7 +36,8 @@ namespace :dev do
         user_id: teacher.id,
         status: 'draft',
         difficulty: 'easy',
-        bloom_taxonomy: 'remember'
+        bloom_taxonomy: 'remember',
+        check_type: 'incomplete_affirmation'
       )
     end
 

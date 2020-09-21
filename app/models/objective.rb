@@ -9,6 +9,16 @@ class Objective < ApplicationRecord
   enumerize :status, in: %i[draft pending finished]
   enumerize :difficulty, in: %i[easy medium hard]
   enumerize :bloom_taxonomy, in: %i[remember understand apply analyze evaluate create]
+  enumerize :check_type, in: %i[
+    incomplete_affirmation
+    assertion_reason
+    column_association
+    gap_or_replacement_of_terms
+    multiple_choice_complex
+    sultiple_multiple_choice
+    serialization
+    true_or_false
+  ]
 
   before_save :update_introduction
 
@@ -17,13 +27,12 @@ class Objective < ApplicationRecord
   def update_introduction
     return if body.nil?
 
-    without_html_tags = body.gsub(%r{</?[^>]+?>}, ' ')
-    without_breaklines = without_html_tags.gsub(/\s+/, ' ')
+    without_html_tags = body.gsub(%r{</?[^>]+?>}, ' ').gsub(/\s+/, ' ')
 
-    self.introduction = if without_breaklines.size <= 14
+    self.introduction = if without_breaklines.size <= 20
                           without_breaklines
                         else
-                          without_breaklines[0, 14]
+                          without_breaklines[0, 20]
                         end
   end
 end
