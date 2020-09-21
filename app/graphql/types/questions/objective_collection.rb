@@ -13,7 +13,6 @@ module Types
       graphql_name 'ObjectiveCollectionType'
 
       field :payload, ObjectiveCollectionPage, null: false do
-        argument :where, Inputs::Questions::ObjectiveWhere, required: false
         argument :page, Integer, required: true
         argument :limit, Integer, required: true
       end

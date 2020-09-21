@@ -2,7 +2,7 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :objective, Questions::ObjectiveCollection, null: false do
+    field :objectives, Questions::ObjectiveCollection, null: false do
       argument :where, Inputs::Questions::ObjectiveWhere, required: false
     end
 
@@ -12,7 +12,7 @@ module Types
 
     field :my_user, Users::Details, null: false
 
-    def objective(where: nil)
+    def objectives(where: nil)
       Resolvers::ObjectiveResolver.new(context, where).payload
     end
 
