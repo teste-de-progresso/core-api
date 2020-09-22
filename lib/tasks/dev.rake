@@ -44,6 +44,33 @@ namespace :dev do
     spinner.success('(successful)')
   end
 
+  desc 'Create Category > SubCategory > Axis > Subject'
+  task categories: :environment do
+    spinner = TTY::Spinner.new(':spinner Creating Category > SubCategory > Axis > Subject', format: :bouncing_ball)
+    spinner.auto_spin
+
+    category = Category.create(
+      name: 'Conhecimentos Básicos'
+    )
+
+    sub_category = SubCategory.create(
+      name: 'Matemática',
+      category_id: category.id
+    )
+
+    axis = Axis.create(
+      name: 'Algoritmos de Alto Desempenho',
+      sub_category_id: sub_category.id
+    )
+
+    Subject.create(
+      name: 'Cálculo',
+      axis_id: axis.id
+    )
+
+    spinner.success('(successful)')
+  end
+
   desc 'Reset database and run seeds'
   task setup: :environment do
     spinner = TTY::Spinner.new(':spinner Dropping database', format: :bouncing_ball)
@@ -61,6 +88,8 @@ namespace :dev do
     `rails db:migrate`
     spinner.success('(successful)')
 
-    `rails db:seed`
+    `rails dev:users`
+    `rails dev:questions`
+    `rails dev:categories`
   end
 end

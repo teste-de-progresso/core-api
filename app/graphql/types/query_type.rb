@@ -10,6 +10,8 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :subjects, [SubjectType], null: false
+
     field :my_user, Users::Details, null: false
 
     def objectives(where: nil)
@@ -18,6 +20,10 @@ module Types
 
     def objective_question(id:)
       Objective.find_by(id: id)
+    end
+
+    def subjects
+      Subject.all
     end
 
     def my_user
