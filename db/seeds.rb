@@ -2,3 +2,4 @@
 
 `rails dev:users`
 `rails dev:questions`
+`rails dev:categories`
