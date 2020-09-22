@@ -3,7 +3,7 @@ EXPOSE 3000
 
 RUN gem install bundler
 RUN apk update && \
-  apk add --no-cache \
+  apk add --no-cache graphviz\
     git \
     build-base \
     postgresql-dev \

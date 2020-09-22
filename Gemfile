@@ -12,7 +12,7 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'tty-spinner'
 
-gem 'active_storage_base64'
+gem 'active_storage_base64', '~> 1.1'
 gem 'aws-sdk-s3', require: false
 
 gem 'devise'
