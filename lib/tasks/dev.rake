@@ -4,6 +4,7 @@ namespace :dev do
   desc 'Create user for each role'
   task users: :environment do
     roles = %i[
+      admin
       teacher
       nde
       coordinator
