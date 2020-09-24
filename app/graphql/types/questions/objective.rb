@@ -7,7 +7,9 @@ module Types
 
       field :id, ID, null: false
       field :introduction, String, null: true
+      field :instruction, String, null: true
       field :body, String, null: true
+      field :support, String, null: true
       field :alternatives, [Alternative], null: true
       field :explanation, String, null: true
       field :references, String, null: true

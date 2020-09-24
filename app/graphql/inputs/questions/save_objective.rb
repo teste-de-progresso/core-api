@@ -6,7 +6,9 @@ module Inputs
       graphql_name 'OjectiveInput'
 
       argument :id, ID, required: false
+      argument :instruction, String, required: false
       argument :body, String, required: false
+      argument :support, String, required: false
       argument :alternatives, [Alternative], required: false
       argument :explanation, String, required: false
       argument :references, String, required: false

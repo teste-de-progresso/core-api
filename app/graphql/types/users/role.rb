@@ -3,6 +3,7 @@
 module Types
   module Users
     class Role < Types::BaseEnum
+      value 'admin'
       value 'teacher'
       value 'nde'
       value 'coordinator'
