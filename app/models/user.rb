@@ -16,6 +16,17 @@ class User < ApplicationRecord
   end
 
   def jwt_payload
-    { user_id: id, email: email }
+    {
+      user_id: id,
+      name: name,
+      email: email,
+      roles: roles.map { |r| r.name.underscore }
+    }
+  end
+
+  def avatar_url
+    Rails.application.routes.url_helpers.rails_blob_url(avatar, only_path: true)
+  rescue NoMethodError
+    nil
   end
 end
