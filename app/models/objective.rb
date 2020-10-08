@@ -10,14 +10,16 @@ class Objective < ApplicationRecord
   enumerize :difficulty, in: %i[easy medium hard]
   enumerize :bloom_taxonomy, in: %i[remember understand apply analyze evaluate create]
   enumerize :check_type, in: %i[
+    unique_answer
     incomplete_affirmation
-    assertion_reason
-    column_association
-    gap_or_replacement_of_terms
-    multiple_choice_complex
-    sultiple_multiple_choice
-    serialization
-    true_or_false
+    multiple_answer
+    negative_focus
+    assertion_and_reason
+    gap
+    interpretation
+    association
+    ordering_or_ranking
+    constant_alternatives
   ]
 
   before_save :update_introduction
