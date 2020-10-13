@@ -8,7 +8,9 @@ module Resolvers
     end
 
     def payload
-      questions = QuestionPolicy::Scope.new(@current_user, Objective).resolve
+      questions = QuestionPolicy::Scope.new(@current_user, Objective)
+                                       .resolve
+                                       .order(updated_at: :desc)
 
       return questions if @where.nil?
 

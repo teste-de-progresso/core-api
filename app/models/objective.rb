@@ -5,6 +5,7 @@ class Objective < ApplicationRecord
 
   belongs_to :user
   belongs_to :subject, optional: true
+  has_many :review_requests, dependent: :destroy
 
   enumerize :status, in: %i[draft pending finished]
   enumerize :difficulty, in: %i[easy medium hard]
@@ -23,6 +24,10 @@ class Objective < ApplicationRecord
   ]
 
   before_save :update_introduction
+
+  def reviewer
+    review_requests.last&.user
+  end
 
   private
 
