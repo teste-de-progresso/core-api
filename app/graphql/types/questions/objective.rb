@@ -20,6 +20,7 @@ module Types
       field :authorship_year, String, null: true
       field :source, String, null: true
       field :own, Boolean, null: true
+      field :reviewer, Types::Users::Details, null: true
 
       field :subject, Types::SubjectType, null: true
       field :user_id, Integer, null: true

@@ -3,14 +3,16 @@
 module Types
   module Questions
     class CheckType < Types::BaseEnum
+      value 'unique_answer'
       value 'incomplete_affirmation'
-      value 'assertion_reason'
-      value 'column_association'
-      value 'gap_or_replacement_of_terms'
-      value 'multiple_choice_complex'
-      value 'sultiple_multiple_choice'
-      value 'serialization'
-      value 'true_or_false'
+      value 'multiple_answer'
+      value 'negative_focus'
+      value 'assertion_and_reason'
+      value 'gap'
+      value 'interpretation'
+      value 'association'
+      value 'ordering_or_ranking'
+      value 'constant_alternatives'
     end
   end
 end

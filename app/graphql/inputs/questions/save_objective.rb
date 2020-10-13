@@ -21,6 +21,7 @@ module Inputs
       argument :own, Boolean, required: false
 
       argument :subject_id, ID, required: false
+      argument :reviewer_id, ID, required: false
     end
   end
 end

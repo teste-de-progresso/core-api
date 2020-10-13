@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_231746) do
+ActiveRecord::Schema.define(version: 2020_10_11_023356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 2020_09_23_231746) do
     t.index ["user_id"], name: "index_objectives_on_user_id"
   end
 
+  create_table "review_requests", force: :cascade do |t|
+    t.bigint "objective_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["objective_id"], name: "index_review_requests_on_objective_id"
+    t.index ["user_id"], name: "index_review_requests_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -137,6 +146,8 @@ ActiveRecord::Schema.define(version: 2020_09_23_231746) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "axes", "sub_categories"
   add_foreign_key "objectives", "subjects"
+  add_foreign_key "review_requests", "objectives"
+  add_foreign_key "review_requests", "users"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "subjects", "axes"
 end
