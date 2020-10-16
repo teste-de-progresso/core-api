@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class RefactorDatabaseAddingColumns < ActiveRecord::Migration[6.0]
   def change
-    remove_column :sub_categories, :category_id
+    remove_column :sub_categories, :category_id, :type
 
     add_reference :axes, :subject, foreign_key: true
     add_reference :categories, :axis, foreign_key: true

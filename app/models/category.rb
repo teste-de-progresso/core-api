@@ -2,7 +2,7 @@
 
 class Category < ApplicationRecord
   belongs_to :axis
-  has_many :sub_categories, dependent: :restrict_with_exception
+  has_many :sub_categories
 
   validates :name, presence: true, uniqueness: true
 end

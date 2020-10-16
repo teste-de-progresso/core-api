@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Subject, type: :model do
   describe 'associations' do
-    it { is_expected.to belong_to(:axis) }
+    it { is_expected.to have_one(:axis) }
     it { is_expected.to have_many(:objectives) }
   end
 
