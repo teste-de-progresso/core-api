@@ -2,7 +2,7 @@
 
 class Axis < ApplicationRecord
   belongs_to :subject
-  has_one :category
+  has_many :categories
 
   validates :name, presence: true, uniqueness: true
 end

@@ -45,28 +45,28 @@ namespace :dev do
     spinner.success('(successful)')
   end
 
-  desc 'Create Category > SubCategory > Axis > Subject'
+  desc 'Subject > Axis > Category > SubCategory'
   task categories: :environment do
-    spinner = TTY::Spinner.new(':spinner Creating Category > SubCategory > Axis > Subject', format: :bouncing_ball)
+    spinner = TTY::Spinner.new(':spinner Creating Subject > Axis > Category > SubCategory', format: :bouncing_ball)
     spinner.auto_spin
 
-    category = Category.create(
-      name: 'Conhecimentos Básicos'
-    )
-
-    sub_category = SubCategory.create(
-      name: 'Matemática',
-      category_id: category.id
+    subject = Subject.create(
+      name: 'Cálculo'
     )
 
     axis = Axis.create(
       name: 'Algoritmos de Alto Desempenho',
-      sub_category_id: sub_category.id
+      subject_id: subject.id
     )
 
-    Subject.create(
-      name: 'Cálculo',
+    category = Category.create(
+      name: 'Conhecimentos Básicos',
       axis_id: axis.id
+    )
+
+    SubCategory.create(
+      name: 'Matemática',
+      category_id: category.id
     )
 
     spinner.success('(successful)')
