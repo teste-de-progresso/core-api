@@ -9,7 +9,7 @@ RSpec.describe Axis, type: :model do
   end
 
   describe 'validations' do
-    subject { create :axis }
+    subject { described_class.new }
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name) }
