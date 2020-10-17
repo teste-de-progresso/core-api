@@ -1,25 +1,19 @@
 FROM ruby:2.6.6-alpine
-EXPOSE 3000
 
-RUN gem install bundler
 RUN apk update && \
-  apk add --no-cache \
-    git \
+    apk add \
+    bash \
     build-base \
+    nodejs \
     postgresql-dev \
     tzdata \
-    yarn
+    graphviz
 
-ARG UID
+RUN mkdir /app
+WORKDIR /app
 
-RUN adduser -u $UID -h /home/teste-progresso/ -S teste-progresso
+COPY Gemfile* ./
+RUN gem install bundler --no-document
+RUN bundle install --no-binstubs --jobs $(nproc) --retry 3
 
-WORKDIR /home/teste-progresso
-
-COPY --chown=$UID Gemfile* ./
-RUN bundle install
-
-COPY --chown=$UID . .
-
-USER teste-progresso
-CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
+COPY . .
