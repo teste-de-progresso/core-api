@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 module Mutations
-  module Questions
-    class SaveObjective < BaseMutation
-      graphql_name 'saveObjective'
-
+  module Question
+    class Save < BaseMutation
       type Types::Questions::ObjectiveResponse
 
-      argument :objective_question, Inputs::Questions::SaveObjective, required: true
+      argument :question, Inputs::Question::Save, required: true
 
-      def resolve(objective_question:)
-        input = objective_question.to_h
+      def resolve(question:)
+        input = question.to_h
         reviewer_id = input.delete(:reviewer_id)
         user = context[:current_user]
 
         question = input[:id] ? ::Objective.find_by(id: input[:id]) : ::Objective.new(user_id: user.id)
         policy = QuestionPolicy.new(user, question)
+
+        question.status = 'pending'
 
         return {} unless input[:id] ? policy.update? : policy.create?
 

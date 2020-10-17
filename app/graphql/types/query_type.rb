@@ -3,11 +3,13 @@
 module Types
   class QueryType < Types::BaseObject
     field :objectives, Questions::ObjectiveCollection, null: false do
-      argument :where, Inputs::Questions::ObjectiveWhere, required: false
+      argument :where, Inputs::Question::Where, required: false
     end
+
     def objectives(where: nil)
       Resolvers::ObjectiveResolver.new(context, where).payload
     end
+
     field :objective_question, Questions::Objective, null: true do
       argument :id, ID, required: true
     end
@@ -31,8 +33,8 @@ module Types
     field :reviewers, [Users::Details], null: false
 
     def reviewers
-      [Role.find_by(name: 'teacher').users.where.not(id: context[:current_user].id),
-       Role.find_by(name: 'nde').users.where.not(id: context[:current_user].id)].sum
+      User.joins(:roles).where(roles: { name: %i[teacher nde] })
+          .where.not(id: context[:current_user].id).distinct
     end
   end
 end
