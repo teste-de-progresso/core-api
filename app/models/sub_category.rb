@@ -2,7 +2,7 @@
 
 class SubCategory < ApplicationRecord
   belongs_to :category
-  has_many :axes, dependent: :restrict_with_exception
+  has_many :subjects
 
   validates :name, presence: true, uniqueness: true
 end
