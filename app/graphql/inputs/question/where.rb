@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module Inputs
-  module Questions
-    class ObjectiveWhere < Types::BaseInputObject
-      graphql_name 'OjectiveWhereInput'
-
+  module Question
+    class Where < Types::BaseInputObject
       argument :check_type, [Types::Questions::CheckType], required: false
       argument :status, [Types::Questions::Status], required: false
       argument :difficulty, [Types::Questions::Difficulty], required: false

@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :save_objective, mutation: Mutations::Questions::SaveObjective
+    field :save_question, mutation: Mutations::Question::Save
+    field :save_question_draft, mutation: Mutations::Question::SaveDraft
   end
 end
