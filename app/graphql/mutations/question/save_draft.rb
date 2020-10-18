@@ -20,7 +20,16 @@ module Mutations
         return {} unless input[:id] ? policy.update? : policy.create?
 
         if question.update(input)
-          ::ReviewRequest.create(objective_id: question.id, user_id: reviewer_id) if reviewer_id
+          question.review_request
+                  .where.not(user_id: reviewer_id)
+                  .destroy_all
+
+          if reviewer_id
+            ::ReviewRequest.find_or_create_by(
+              objective_id: question.id,
+              user_id: reviewer_id
+            )
+          end
 
           return { payload: question }
         end

@@ -21,7 +21,9 @@ class ApplicationPolicy
     end
 
     def resolve
-      if user.role?(:teacher)
+      user_roles = user.roles.map { |r| r.name.to_sym }
+
+      if user_roles == [:teacher]
         scope.where(user_id: user.id)
       else
         scope.all
