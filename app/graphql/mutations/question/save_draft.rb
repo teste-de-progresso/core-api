@@ -20,7 +20,7 @@ module Mutations
         return {} unless input[:id] ? policy.update? : policy.create?
 
         if question.update(input)
-          question.review_request
+          question.review_requests
                   .where.not(user_id: reviewer_id)
                   .destroy_all
 
