@@ -69,12 +69,13 @@ namespace :dev do
     spinner = TTY::Spinner.new(':spinner Creating Axis > Category > SubCategory > Subject', format: :bouncing_ball)
     spinner.auto_spin
 
-    Axis.create(
-      name: 'Algoritmos de Alto Desempenho'
-    )
-
     category = Category.create(
       name: 'Conhecimentos Básicos'
+    )
+
+    Axis.create(
+      name: 'Algoritmos de Alto Desempenho',
+      categories: [category]
     )
 
     sub_category = SubCategory.create(
