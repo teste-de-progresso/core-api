@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 2020_10_18_142207) do
     t.index ["name"], name: "index_axes_on_name", unique: true
   end
 
-  create_table "axes_categories", force: :cascade do |t|
-    t.integer "axis_id"
-    t.integer "category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "axes_categories", id: false, force: :cascade do |t|
+    t.bigint "axis_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["axis_id"], name: "index_axes_categories_on_axis_id"
+    t.index ["category_id"], name: "index_axes_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|

@@ -2,11 +2,9 @@
 
 class AddJoinTableForAxisAndCategory < ActiveRecord::Migration[6.0]
   def change
-    create_table :axes_categories do |t|
-      t.integer :axis_id
-      t.integer :category_id
-
-      t.timestamps null: false
+    create_join_table :axes, :categories do |t|
+      t.index :axis_id
+      t.index :category_id
     end
   end
 end
