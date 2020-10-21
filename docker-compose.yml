@@ -24,7 +24,7 @@ services:
         rm -f tmp/pids/server.pid &&
         rails s -b 0.0.0.0'
     ports:
-      - "3000:3000"
+      - "3001:3000"
 
   db:
     image: postgres:11.3-alpine
