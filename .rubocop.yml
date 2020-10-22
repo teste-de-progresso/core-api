@@ -156,3 +156,6 @@ Rails/WhereExists:
 
 Rails/HasAndBelongsToMany:
   Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
