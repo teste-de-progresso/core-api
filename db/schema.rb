@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_233204) do
+ActiveRecord::Schema.define(version: 2020_10_22_015157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,24 +113,15 @@ ActiveRecord::Schema.define(version: 2020_10_21_233204) do
     t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
   end
 
-  create_table "sub_categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_sub_categories_on_name", unique: true
-  end
-
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.bigint "axis_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false
-    t.bigint "sub_category_id"
     t.index ["axis_id"], name: "index_subjects_on_axis_id"
     t.index ["category_id"], name: "index_subjects_on_category_id"
     t.index ["name"], name: "index_subjects_on_name", unique: true
-    t.index ["sub_category_id"], name: "index_subjects_on_sub_category_id"
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -159,5 +150,4 @@ ActiveRecord::Schema.define(version: 2020_10_21_233204) do
   add_foreign_key "review_requests", "users"
   add_foreign_key "subjects", "axes"
   add_foreign_key "subjects", "categories"
-  add_foreign_key "subjects", "sub_categories"
 end

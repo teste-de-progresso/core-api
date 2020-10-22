@@ -159,3 +159,9 @@ Rails/HasAndBelongsToMany:
 
 Rails/NotNullColumn:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/IfInsideElse:
+  Enabled: false

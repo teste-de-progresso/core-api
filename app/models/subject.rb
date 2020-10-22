@@ -3,7 +3,6 @@
 class Subject < ApplicationRecord
   belongs_to :axis
   belongs_to :category
-  belongs_to :sub_category
 
   has_many :objectives, dependent: :restrict_with_exception
 
