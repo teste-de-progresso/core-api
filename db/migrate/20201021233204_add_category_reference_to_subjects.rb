@@ -2,6 +2,6 @@
 
 class AddCategoryReferenceToSubjects < ActiveRecord::Migration[6.0]
   def change
-    add_reference :subjects, :category, foreign_key: true, null: false
+    add_reference :subjects, :category
   end
 end

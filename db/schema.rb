@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_015157) do
+ActiveRecord::Schema.define(version: 2020_10_26_225359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,10 +115,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_015157) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
-    t.bigint "axis_id", null: false
+    t.integer "axis_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.index ["axis_id"], name: "index_subjects_on_axis_id"
     t.index ["category_id"], name: "index_subjects_on_category_id"
     t.index ["name"], name: "index_subjects_on_name", unique: true
@@ -149,5 +149,4 @@ ActiveRecord::Schema.define(version: 2020_10_22_015157) do
   add_foreign_key "review_requests", "objectives"
   add_foreign_key "review_requests", "users"
   add_foreign_key "subjects", "axes"
-  add_foreign_key "subjects", "categories"
 end
