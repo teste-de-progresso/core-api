@@ -140,11 +140,6 @@ namespace :dev do
       Axis.create(name: axis)
     end
 
-    # Create sub_categories
-    # sub_categories.each do |sub_category|
-    #   Category.create(name: sub_category)
-    # end
-
     category_subject_conhecimentos_basicos = [
       'Cálculo',
       'Geometria Analítica',
@@ -193,111 +188,96 @@ namespace :dev do
       if subject.in?(axis_subject_algoritmo_desempenho)
         if subject.in?(category_subject_conhecimentos_basicos)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Algoritmos de Alto Desempenho').pluck(:id),
-                         category_id: Category.where(name: 'Conhecimentos Básicos').pluck(:id))
+                         axis: Axis.find_by(name: 'Algoritmos de Alto Desempenho'),
+                         category: Category.find_by(name: 'Conhecimentos Básicos'))
         elsif subject.in?(category_subject_modelagem_simluacao)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Algoritmos de Alto Desempenho').pluck(:id),
-                         category_id: Category.where(name: 'Modelagem e Simulação').pluck(:id))
+                         axis: Axis.find_by(name: 'Algoritmos de Alto Desempenho'),
+                         category: Category.find_by(name: 'Modelagem e Simulação'))
         elsif subject.in?(category_subject_engenharia_banco_dados)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Algoritmos de Alto Desempenho').pluck(:id),
-                         category_id: Category.where(name: 'Engenharia e Banco de Dados').pluck(:id))
+                         axis: Axis.find_by(name: 'Algoritmos de Alto Desempenho'),
+                         category: Category.find_by(name: 'Engenharia e Banco de Dados'))
         elsif subject.in?(category_subject_redes_e_sistemas_op)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Algoritmos de Alto Desempenho').pluck(:id),
-                         category_id: Category.where(name: 'Redes e Sistemas Operacionais').pluck(:id))
+                         axis: Axis.find_by(name: 'Algoritmos de Alto Desempenho'),
+                         category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
         else
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Algoritmos de Alto Desempenho').pluck(:id),
-                         category_id: Category.where(name: 'Sistemas Inteligentes').pluck(:id))
+                         axis: Axis.find_by(name: 'Algoritmos de Alto Desempenho'),
+                         category: Category.find_by(name: 'Sistemas Inteligentes'))
         end
 
       elsif subject.in?(axis_subject_ciencia_tec_soci)
         if subject.in?(category_subject_conhecimentos_basicos)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Ciência, Tecnologia e Sociedade').pluck(:id),
-                         category_id: Category.where(name: 'Conhecimentos Básicos').pluck(:id))
+                         axis: Axis.find_by(name: 'Ciência, Tecnologia e Sociedade'),
+                         category: Category.find_by(name: 'Conhecimentos Básicos'))
         elsif subject.in?(category_subject_modelagem_simluacao)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Ciência, Tecnologia e Sociedade').pluck(:id),
-                         category_id: Category.where(name: 'Modelagem e Simulação').pluck(:id))
+                         axis: Axis.find_by(name: 'Ciência, Tecnologia e Sociedade'),
+                         category: Category.find_by(name: 'Modelagem e Simulação'))
         elsif subject.in?(category_subject_engenharia_banco_dados)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Ciência, Tecnologia e Sociedade').pluck(:id),
-                         category_id: Category.where(name: 'Engenharia e Banco de Dados').pluck(:id))
+                         axis: Axis.find_by(name: 'Ciência, Tecnologia e Sociedade'),
+                         category: Category.find_by(name: 'Engenharia e Banco de Dados'))
         elsif subject.in?(category_subject_redes_e_sistemas_op)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Ciência, Tecnologia e Sociedade').pluck(:id),
-                         category_id: Category.where(name: 'Redes e Sistemas Operacionais').pluck(:id))
+                         axis: Axis.find_by(name: 'Ciência, Tecnologia e Sociedade'),
+                         category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
         else
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Ciência, Tecnologia e Sociedade').pluck(:id),
-                         category_id: Category.where(name: 'Sistemas Inteligentes').pluck(:id))
+                         axis: Axis.find_by(name: 'Ciência, Tecnologia e Sociedade'),
+                         category: Category.find_by(name: 'Sistemas Inteligentes'))
         end
 
       elsif subject.in?(axis_subject_sistema_software)
         if subject.in?(category_subject_conhecimentos_basicos)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Sistemas de Software').pluck(:id),
-                         category_id: Category.where(name: 'Conhecimentos Básicos').pluck(:id))
+                         axis: Axis.find_by(name: 'Sistemas de Software'),
+                         category: Category.find_by(name: 'Conhecimentos Básicos'))
         elsif subject.in?(category_subject_modelagem_simluacao)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Sistemas de Software').pluck(:id),
-                         category_id: Category.where(name: 'Modelagem e Simulação').pluck(:id))
+                         axis: Axis.find_by(name: 'Sistemas de Software'),
+                         category: Category.find_by(name: 'Modelagem e Simulação'))
         elsif subject.in?(category_subject_engenharia_banco_dados)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Sistemas de Software').pluck(:id),
-                         category_id: Category.where(name: 'Engenharia e Banco de Dados').pluck(:id))
+                         axis: Axis.find_by(name: 'Sistemas de Software'),
+                         category: Category.find_by(name: 'Engenharia e Banco de Dados'))
         elsif subject.in?(category_subject_redes_e_sistemas_op)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Sistemas de Software').pluck(:id),
-                         category_id: Category.where(name: 'Redes e Sistemas Operacionais').pluck(:id))
+                         axis: Axis.find_by(name: 'Sistemas de Software'),
+                         category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
         else
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Sistemas de Software').pluck(:id),
-                         category_id: Category.where(name: 'Sistemas Inteligentes').pluck(:id))
+                         axis: Axis.find_by(name: 'Sistemas de Software'),
+                         category: Category.find_by(name: 'Sistemas Inteligentes'))
         end
 
       else
         if subject.in?(category_subject_conhecimentos_basicos)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Infraestrutura de Sistemas Computacionais').pluck(:id),
-                         category_id: Category.where(name: 'Conhecimentos Básicos').pluck(:id))
+                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                         category: Category.find_by(name: 'Conhecimentos Básicos'))
         elsif subject.in?(category_subject_modelagem_simluacao)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Infraestrutura de Sistemas Computacionais').pluck(:id),
-                         category_id: Category.where(name: 'Modelagem e Simulação').pluck(:id))
+                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                         category: Category.find_by(name: 'Modelagem e Simulação'))
         elsif subject.in?(category_subject_engenharia_banco_dados)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Infraestrutura de Sistemas Computacionais').pluck(:id),
-                         category_id: Category.where(name: 'Engenharia e Banco de Dados').pluck(:id))
+                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                         category: Category.find_by(name: 'Engenharia e Banco de Dados'))
         elsif subject.in?(category_subject_redes_e_sistemas_op)
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Infraestrutura de Sistemas Computacionais').pluck(:id),
-                         category_id: Category.where(name: 'Redes e Sistemas Operacionais').pluck(:id))
+                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                         category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
         else
           Subject.create(name: subject,
-                         axis_id: Axis.where(name: 'Infraestrutura de Sistemas Computacionais').pluck(:id),
-                         category_id: Category.where(name: 'Sistemas Inteligentes').pluck(:id))
+                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                         category: Category.find_by(name: 'Sistemas Inteligentes'))
         end
       end
     end
-
-    # axis = Axis.create(
-    #   name: 'Algoritmos de Alto Desempenho'
-    # )
-
-    # category = Category.create(
-    #   name: 'Conhecimentos Básicos'
-    # )
-
-    # Subject.create(
-    #   name: 'Cálculo',
-    #   axis_id: axis.id,
-    #   category_id: category.id
-    # )
-
     spinner.success('(successful)')
   end
 
