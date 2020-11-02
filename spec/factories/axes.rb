@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :axis do
-    sub_category
-
     name { 'Algoritmos de Alto Desempenho' }
   end
 end

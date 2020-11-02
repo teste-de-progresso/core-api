@@ -11,7 +11,7 @@ RSpec.describe Subject, type: :model do
   end
 
   describe 'validations' do
-    subject { described_class.create }
+    subject { create :subject }
 
     it { is_expected.to validate_presence_of(:name) }
 
