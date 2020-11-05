@@ -25,6 +25,10 @@ class User < ApplicationRecord
     }
   end
 
+  def active_review_requests
+    review_requests.where(answered: false)
+  end
+
   def avatar_url
     Rails.application.routes.url_helpers.rails_blob_url(avatar, only_path: true)
   rescue NoMethodError
