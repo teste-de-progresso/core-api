@@ -70,9 +70,9 @@
 <text text-anchor="start" x="605" y="-550.2" font-family="Arial Bold" font-size="11.00">Subject</text>
 <polyline fill="none" stroke="black" points="555,-543 699,-543 "/>
 <text text-anchor="start" x="562" y="-529.5" font-family="Arial" font-size="10.00">axis_id </text>
-<text text-anchor="start" x="597" y="-529.5" font-family="Arial Italic" font-size="10.00" fill="#999999">integer (8) ∗ FK</text>
+<text text-anchor="start" x="597" y="-529.5" font-family="Arial Italic" font-size="10.00" fill="#999999">integer (8) FK</text>
 <text text-anchor="start" x="562" y="-516.5" font-family="Arial" font-size="10.00">category_id </text>
-<text text-anchor="start" x="617" y="-516.5" font-family="Arial Italic" font-size="10.00" fill="#999999">integer (8) ∗ FK</text>
+<text text-anchor="start" x="617" y="-516.5" font-family="Arial Italic" font-size="10.00" fill="#999999">integer (8) FK</text>
 <text text-anchor="start" x="562" y="-503.5" font-family="Arial" font-size="10.00">name </text>
 <text text-anchor="start" x="590" y="-503.5" font-family="Arial Italic" font-size="10.00" fill="#999999">string ∗ U</text>
 </g>

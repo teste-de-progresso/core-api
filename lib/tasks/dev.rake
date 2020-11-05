@@ -254,28 +254,26 @@ namespace :dev do
                          category: Category.find_by(name: 'Sistemas Inteligentes'))
         end
 
+      elsif subject.in?(category_subject_conhecimentos_basicos)
+        Subject.create(name: subject,
+                       axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                       category: Category.find_by(name: 'Conhecimentos Básicos'))
+      elsif subject.in?(category_subject_modelagem_simluacao)
+        Subject.create(name: subject,
+                       axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                       category: Category.find_by(name: 'Modelagem e Simulação'))
+      elsif subject.in?(category_subject_engenharia_banco_dados)
+        Subject.create(name: subject,
+                       axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                       category: Category.find_by(name: 'Engenharia e Banco de Dados'))
+      elsif subject.in?(category_subject_redes_e_sistemas_op)
+        Subject.create(name: subject,
+                       axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                       category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
       else
-        if subject.in?(category_subject_conhecimentos_basicos)
-          Subject.create(name: subject,
-                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
-                         category: Category.find_by(name: 'Conhecimentos Básicos'))
-        elsif subject.in?(category_subject_modelagem_simluacao)
-          Subject.create(name: subject,
-                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
-                         category: Category.find_by(name: 'Modelagem e Simulação'))
-        elsif subject.in?(category_subject_engenharia_banco_dados)
-          Subject.create(name: subject,
-                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
-                         category: Category.find_by(name: 'Engenharia e Banco de Dados'))
-        elsif subject.in?(category_subject_redes_e_sistemas_op)
-          Subject.create(name: subject,
-                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
-                         category: Category.find_by(name: 'Redes e Sistemas Operacionais'))
-        else
-          Subject.create(name: subject,
-                         axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
-                         category: Category.find_by(name: 'Sistemas Inteligentes'))
-        end
+        Subject.create(name: subject,
+                       axis: Axis.find_by(name: 'Infraestrutura de Sistemas Computacionais'),
+                       category: Category.find_by(name: 'Sistemas Inteligentes'))
       end
     end
     spinner.success('(successful)')
