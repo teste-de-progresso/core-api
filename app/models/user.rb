@@ -25,7 +25,7 @@ class User < ApplicationRecord
     }
   end
 
-  def active_review_request
+  def active_review_requests
     review_requests.where(answered: false)
   end
 

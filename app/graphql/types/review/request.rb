@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Types
   module Review
     class Request < Types::BaseObject
@@ -6,7 +8,7 @@ module Types
       field :id, ID, null: false
       field :answered, Boolean, null: false
       field :responses, [Feedback], null: false
-      field :objective, [Types::Questions::Objective], null: false
+      field :objective, Types::Questions::Objective, null: false
       field :user, Types::Users::Details, null: false
 
       def responses
