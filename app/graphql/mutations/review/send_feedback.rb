@@ -22,7 +22,11 @@ module Mutations
           comment: inputs[:comment]
         )
 
-        return { payload: feedback } if feedback.save
+        if feedback.save
+          feedback.review_request.update(answered: true)
+
+          return { payload: feedback }
+        end
 
         { errors: ::ResponseError.from_active_record_model(feedback) }
       end

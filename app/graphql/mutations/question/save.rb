@@ -25,10 +25,12 @@ module Mutations
                   .destroy_all
 
           if reviewer_id
-            ::ReviewRequest.find_or_create_by(
+            review_request = ::ReviewRequest.find_or_create_by(
               objective_id: question.id,
               user_id: reviewer_id
             )
+
+            review_request.update(answered: false)
           end
 
           return { payload: question }

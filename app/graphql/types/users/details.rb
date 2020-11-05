@@ -8,6 +8,7 @@ module Types
       field :email, String, null: false
       field :avatar_url, String, null: true
       field :roles, [Role], null: false
+      field :active_review_request, [Types::Review::Request], null: false
 
       def avatar_url
         Rails.application.routes.url_helpers.rails_blob_url(object.avatar, only_path: true)
