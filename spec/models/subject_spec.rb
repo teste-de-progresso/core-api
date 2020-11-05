@@ -14,8 +14,6 @@ RSpec.describe Subject, type: :model do
     subject { create :subject }
 
     it { is_expected.to validate_presence_of(:name) }
-
-    # https://github.com/thoughtbot/shoulda-matchers/blob/585f651460026045f590ea27e14f6c5f09e8e6c4/lib/shoulda/matchers/active_model/validate_uniqueness_of_matcher.rb#L28
-    # it { is_expected.to validate_uniqueness_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:name) }
   end
 end

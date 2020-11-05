@@ -156,12 +156,3 @@ Rails/WhereExists:
 
 Rails/HasAndBelongsToMany:
   Enabled: false
-
-Rails/NotNullColumn:
-  Enabled: false
-
-Style/AsciiComments:
-  Enabled: false
-
-Style/IfInsideElse:
-  Enabled: false
