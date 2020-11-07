@@ -3,7 +3,7 @@
 module Types
   module Questions
     class Objective < Types::BaseObject
-      graphql_name 'ObjectiveType'
+      graphql_name 'QuestionType'
 
       field :id, ID, null: false
       field :introduction, String, null: true

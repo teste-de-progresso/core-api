@@ -2,7 +2,7 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :questions, Questions::ObjectiveCollection, null: false do
+    field :questions, Questions::Collection, null: false do
       argument :where, Inputs::Question::Where, required: false
     end
 

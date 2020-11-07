@@ -2,17 +2,17 @@
 
 module Types
   module Questions
-    class ObjectiveCollectionPage < Types::BaseObject
-      graphql_name 'ObjectiveCollectionPageType'
+    class CollectionPage < Types::BaseObject
+      graphql_name 'QuestionCollectionPageType'
 
       field :nodes, [Types::Questions::Objective], null: true
       field :page_info, Types::PageInfo, null: true
     end
 
-    class ObjectiveCollection < Types::BaseObject
-      graphql_name 'ObjectiveCollectionType'
+    class Collection < Types::BaseObject
+      graphql_name 'QuestionCollectionType'
 
-      field :payload, ObjectiveCollectionPage, null: false do
+      field :payload, CollectionPage, null: false do
         argument :page, Integer, required: true
         argument :limit, Integer, required: true
       end

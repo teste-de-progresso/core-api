@@ -2,7 +2,9 @@
 
 module Types
   module Questions
-    class ObjectiveResponse < Types::BaseObject
+    class Response < Types::BaseObject
+      graphql_name 'QuestionResponse'
+
       field :payload, Types::Questions::Objective, null: true
       field :errors, [Types::ResponseErrorType], null: true
     end

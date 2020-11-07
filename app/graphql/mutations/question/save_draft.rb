@@ -3,7 +3,7 @@
 module Mutations
   module Question
     class SaveDraft < BaseMutation
-      type Types::Questions::ObjectiveResponse
+      type Types::Questions::Response
 
       argument :question, Inputs::Question::SaveDraft, required: true
 
