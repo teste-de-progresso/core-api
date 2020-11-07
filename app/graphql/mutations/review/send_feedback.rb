@@ -39,7 +39,7 @@ module Mutations
       end
 
       def update_question_status
-        return unless @inputs[:comment] == :approved
+        return if @inputs[:status].to_sym != :approve
 
         @feedback.review_request
                  .objective

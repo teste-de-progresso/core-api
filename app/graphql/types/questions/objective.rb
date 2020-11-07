@@ -22,6 +22,8 @@ module Types
       field :own, Boolean, null: true
       field :reviewer, Types::Users::Details, null: true
 
+      field :review_requests, [Types::Review::Request], null: false
+
       field :subject, Types::SubjectType, null: true
       field :user_id, Integer, null: true
 
