@@ -5,6 +5,7 @@ module Types
     class Status < Types::BaseEnum
       value 'draft'
       value 'pending'
+      value 'approved'
       value 'finished'
     end
   end

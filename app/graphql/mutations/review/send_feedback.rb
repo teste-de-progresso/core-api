@@ -43,7 +43,7 @@ module Mutations
 
         @feedback.review_request
                  .objective
-                 .update(status: :finished)
+                 .update(status: :approved)
       end
     end
   end

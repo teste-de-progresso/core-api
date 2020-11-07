@@ -7,7 +7,7 @@ class Objective < ApplicationRecord
   belongs_to :subject, optional: true
   has_many :review_requests, dependent: :destroy
 
-  enumerize :status, in: %i[draft pending finished]
+  enumerize :status, in: %i[draft pending approved finished]
   enumerize :difficulty, in: %i[easy medium hard]
   enumerize :bloom_taxonomy, in: %i[remember understand apply analyze evaluate create]
   enumerize :check_type, in: %i[
