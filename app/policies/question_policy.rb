@@ -39,6 +39,10 @@ class QuestionPolicy < ApplicationPolicy
     false
   end
 
+  def finish?
+    (is?(:admin) || @record.user_id == @user.id) && @record.status.to_sym == :approved
+  end
+
   def permissions
     PERMISSIONS.select { |method| send("#{method}?") }
   end
