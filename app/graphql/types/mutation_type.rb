@@ -5,5 +5,6 @@ module Types
     field :save_question, mutation: Mutations::Question::Save
     field :save_question_draft, mutation: Mutations::Question::SaveDraft
     field :send_feedback, mutation: Mutations::Review::SendFeedback
+    field :finish_question, mutation: Mutations::Question::Finish
   end
 end
