@@ -2,19 +2,19 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :objectives, Questions::ObjectiveCollection, null: false do
+    field :questions, Questions::Collection, null: false do
       argument :where, Inputs::Question::Where, required: false
     end
 
-    def objectives(where: nil)
+    def questions(where: nil)
       Resolvers::ObjectiveResolver.new(context, where).payload
     end
 
-    field :objective_question, Questions::Objective, null: true do
+    field :question, Questions::Objective, null: true do
       argument :id, ID, required: true
     end
 
-    def objective_question(id:)
+    def question(id:)
       Objective.find_by(id: id)
     end
 

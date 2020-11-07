@@ -3,7 +3,7 @@
 module Mutations
   module Question
     class Finish < BaseMutation
-      type Types::Questions::ObjectiveResponse
+      type Types::Questions::Response
 
       argument :question_id, ID, required: true
 
