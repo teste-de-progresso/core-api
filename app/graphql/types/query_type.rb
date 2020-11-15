@@ -7,10 +7,10 @@ module Types
     end
 
     def questions(where: nil)
-      Resolvers::ObjectiveResolver.new(context, where).payload
+      Resolvers::QuestionResolver.new(context, where).payload
     end
 
-    field :question, Questions::Objective, null: true do
+    field :question, Questions::Base, null: true do
       argument :id, ID, required: true
     end
 

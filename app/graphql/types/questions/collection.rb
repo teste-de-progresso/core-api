@@ -5,7 +5,7 @@ module Types
     class CollectionPage < Types::BaseObject
       graphql_name 'QuestionCollectionPageType'
 
-      field :nodes, [Types::Questions::Objective], null: true
+      field :nodes, [Types::Questions::Base], null: true
       field :page_info, Types::PageInfo, null: true
     end
 

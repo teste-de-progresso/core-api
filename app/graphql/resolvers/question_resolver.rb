@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module Resolvers
-  class ObjectiveResolver
+  class QuestionResolver
     def initialize(context, where)
       @current_user = context[:current_user]
       @where = where.to_h
     end
 
     def payload
-      questions = QuestionPolicy::Scope.new(@current_user, Objective)
+      questions = QuestionPolicy::Scope.new(@current_user, Question)
                                        .resolve
                                        .order(updated_at: :desc)
 
