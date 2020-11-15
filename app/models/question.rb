@@ -5,7 +5,7 @@ class Question < ApplicationRecord
 
   belongs_to :user
   belongs_to :subject, optional: true
-  has_many :review_requests, dependent: :destroy
+  has_many :review_requests, dependent: :destroy, class_name: 'ReviewRequest', foreign_key: :objective_id
 
   enumerize :status, in: %i[draft pending approved finished]
   enumerize :difficulty, in: %i[easy medium hard]
