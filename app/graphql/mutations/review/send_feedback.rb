@@ -10,11 +10,11 @@ module Mutations
       def resolve(feedback:)
         @inputs = feedback.to_h
 
-        request = Question.select(:id)
-                          .find(@inputs[:question_id])
-                          .review_requests
-                          .where(user_id: context[:current_user].id)
-                          .order(created_at: :desc).first
+        request = ::Question.select(:id)
+                            .find(@inputs[:question_id])
+                            .review_requests
+                            .where(user_id: context[:current_user].id)
+                            .order(created_at: :desc).first
 
         @feedback = ReviewFeedback.new(
           review_request_id: request.id,
