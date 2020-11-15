@@ -12,7 +12,7 @@ module Mutations
         reviewer_id = input.delete(:reviewer_id)
         user = context[:current_user]
 
-        question = input[:id] ? ::Objective.find_by(id: input[:id]) : ::Objective.new(user_id: user.id)
+        question = input[:id] ? ::Question.find_by(id: input[:id]) : ::Question.new(user_id: user.id)
         policy = QuestionPolicy.new(user, question)
 
         question.status = 'pending'
@@ -26,7 +26,7 @@ module Mutations
 
           if reviewer_id
             review_request = ::ReviewRequest.find_or_create_by(
-              objective_id: question.id,
+              question_id: question.id,
               user_id: reviewer_id
             )
 

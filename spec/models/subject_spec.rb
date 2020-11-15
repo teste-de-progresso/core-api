@@ -6,8 +6,8 @@ RSpec.describe Subject, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:axis) }
     it { is_expected.to belong_to(:category) }
-
     it { is_expected.to have_many(:objectives) }
+    it { is_expected.to have_many(:questions) }
   end
 
   describe 'validations' do

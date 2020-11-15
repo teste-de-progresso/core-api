@@ -156,3 +156,6 @@ Rails/WhereExists:
 
 Rails/HasAndBelongsToMany:
   Enabled: false
+
+Rails/InverseOf: # TODO: Remove after delete Objective model references
+  Enabled: false

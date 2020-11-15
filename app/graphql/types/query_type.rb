@@ -15,7 +15,7 @@ module Types
     end
 
     def question(id:)
-      Objective.find_by(id: id)
+      Question.find_by(id: id)
     end
 
     field :subjects, [SubjectType], null: false
