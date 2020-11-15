@@ -10,7 +10,7 @@ module Mutations
       def resolve(input)
         user = context[:current_user]
 
-        question = Objective.find(input[:question_id])
+        question = Question.find(input[:question_id])
         policy = QuestionPolicy.new(user, question)
 
         return {} unless policy.finish?

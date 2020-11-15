@@ -10,7 +10,7 @@ module Mutations
       def resolve(feedback:)
         @inputs = feedback.to_h
 
-        request = Objective.select(:id)
+        request = Question.select(:id)
                            .find(@inputs[:question_id])
                            .review_requests
                            .where(user_id: context[:current_user].id)
@@ -42,7 +42,7 @@ module Mutations
         return if @inputs[:status].to_sym != :approve
 
         @feedback.review_request
-                 .objective
+                 .question
                  .update(status: :approved)
       end
     end
