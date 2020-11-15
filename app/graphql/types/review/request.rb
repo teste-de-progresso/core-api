@@ -8,8 +8,7 @@ module Types
       field :id, ID, null: false
       field :answered, Boolean, null: false
       field :responses, [Feedback], null: false
-      field :objective, Types::Questions::Objective, null: false, deprecation_reason: 'Depreciated due to question'
-      field :question, Types::Questions::Objective, null: false
+      field :question, Types::Questions::Base, null: false
       field :user, Types::Users::Details, null: false
 
       def responses
