@@ -8,7 +8,6 @@ module Inputs
       argument :difficulty, [Types::Questions::Difficulty], required: false
       argument :bloom_taxonomy, [Types::Questions::BloomTaxonomy], required: false
       argument :authorship_year, [String], required: false
-      argument :own, Boolean, required: false
       argument :user_id, ID, required: false
     end
   end
