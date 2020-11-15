@@ -19,7 +19,6 @@ module Types
       field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
       field :authorship_year, String, null: true
       field :source, String, null: true
-      field :own, Boolean, null: true
       field :reviewer, Types::Users::Details, null: true
 
       field :review_requests, [Types::Review::Request], null: false

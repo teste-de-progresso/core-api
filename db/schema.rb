@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_153656) do
+ActiveRecord::Schema.define(version: 2020_11_15_165818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_11_15_153656) do
     t.string "bloom_taxonomy"
     t.string "authorship_year"
     t.string "source"
-    t.boolean "own"
     t.text "references"
     t.string "check_type"
     t.bigint "subject_id"

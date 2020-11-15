@@ -15,7 +15,6 @@ module Inputs
       argument :bloom_taxonomy, Types::Questions::BloomTaxonomy, required: false
       argument :authorship_year, String, required: false
       argument :source, String, required: false
-      argument :own, Boolean, required: false
 
       argument :subject_id, ID, required: false
       argument :reviewer_id, ID, required: false

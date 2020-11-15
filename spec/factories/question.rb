@@ -22,7 +22,6 @@ FactoryBot.define do
     bloom_taxonomy { 'understand' }
     authorship_year { '2020' }
     source { 'UNIFESO' }
-    own { true }
     user
     subject
   end
