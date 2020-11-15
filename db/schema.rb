@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_014631) do
+ActiveRecord::Schema.define(version: 2020_11_15_143622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_014631) do
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
 
-  create_table "objectives", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.text "body"
     t.jsonb "alternatives"
     t.string "status", default: "draft", null: false
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2020_11_05_014631) do
     t.bigint "subject_id"
     t.text "instruction"
     t.text "support"
-    t.index ["subject_id"], name: "index_objectives_on_subject_id"
-    t.index ["user_id"], name: "index_objectives_on_user_id"
+    t.index ["subject_id"], name: "index_questions_on_subject_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "review_feedbacks", force: :cascade do |t|
@@ -145,9 +145,9 @@ ActiveRecord::Schema.define(version: 2020_11_05_014631) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "objectives", "subjects"
+  add_foreign_key "questions", "subjects"
   add_foreign_key "review_feedbacks", "review_requests"
-  add_foreign_key "review_requests", "objectives"
+  add_foreign_key "review_requests", "questions", column: "objective_id"
   add_foreign_key "review_requests", "users"
   add_foreign_key "subjects", "axes"
   add_foreign_key "subjects", "categories"
