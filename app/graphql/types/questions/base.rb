@@ -6,6 +6,7 @@ module Types
       graphql_name 'QuestionType'
 
       field :id, ID, null: false
+      field :uuid, ID, null: false
       field :introduction, String, null: true
       field :instruction, String, null: true
       field :body, String, null: true

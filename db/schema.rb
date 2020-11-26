@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_165818) do
+ActiveRecord::Schema.define(version: 2020_11_26_010551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,8 +77,10 @@ ActiveRecord::Schema.define(version: 2020_11_15_165818) do
     t.bigint "subject_id"
     t.text "instruction"
     t.text "support"
+    t.uuid "uuid", default: -> { "uuid_generate_v4()" }, null: false
     t.index ["subject_id"], name: "index_questions_on_subject_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
+    t.index ["uuid"], name: "index_questions_on_uuid"
   end
 
   create_table "review_feedbacks", force: :cascade do |t|

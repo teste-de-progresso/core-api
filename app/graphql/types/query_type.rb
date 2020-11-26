@@ -11,11 +11,11 @@ module Types
     end
 
     field :question, Questions::Base, null: true do
-      argument :id, ID, required: true
+      argument :uuid, ID, required: true
     end
 
-    def question(id:)
-      Question.find_by(id: id)
+    def question(uuid:)
+      Question.find_by(uuid: uuid)
     end
 
     field :subjects, [SubjectType], null: false
