@@ -1,4 +1,3 @@
-# typed: true
 # frozen_string_literal: true
 
 class QuestionPolicy < ApplicationPolicy
@@ -21,7 +20,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def create?
-    @user.admin? || @user.teacher?
+    is?(:admin) || is?(:teacher)
   end
 
   def new?
@@ -29,7 +28,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.admin? || @user.nde? || (@user.teacher? && @record.user_id == @user.id)
+    is?(:admin) || is?(:nde) || (is?(:teacher) && @record.user_id == @user.id)
   end
 
   def edit?
@@ -41,7 +40,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def finish?
-    (@user.admin? || @record.user_id == @user.id) && @record.status.to_sym == :approved
+    (is?(:admin) || @record.user_id == @user.id) && @record.status.to_sym == :approved
   end
 
   def permissions

@@ -1,4 +1,3 @@
-# typed: false
 # frozen_string_literal: true
 
 module Mutations
@@ -8,7 +7,6 @@ module Mutations
 
       argument :question, Inputs::Question::SaveDraft, required: true
 
-      sig { params(question: Inputs::Question::SaveDraft).returns(Types::Questions::Response) }
       def resolve(question:)
         input = question.to_h
         reviewer_id = input.delete(:reviewer_id)

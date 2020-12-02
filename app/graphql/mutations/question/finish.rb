@@ -1,4 +1,3 @@
-# typed: false
 # frozen_string_literal: true
 
 module Mutations
@@ -8,7 +7,6 @@ module Mutations
 
       argument :question_id, ID, required: true
 
-      sig { params(input: { question_id: Inputs::Review::SendFeedback }).returns(Types::Review::FeedbackReponse) }
       def resolve(input)
         user = context[:current_user]
 

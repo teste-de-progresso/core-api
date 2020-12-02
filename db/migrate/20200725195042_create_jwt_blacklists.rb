@@ -1,4 +1,3 @@
-# typed: true
 # frozen_string_literal: true
 
 class CreateJwtBlacklists < ActiveRecord::Migration[6.0]

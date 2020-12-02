@@ -1,4 +1,3 @@
-# typed: false
 # frozen_string_literal: true
 
 class Question < ApplicationRecord
@@ -26,7 +25,6 @@ class Question < ApplicationRecord
 
   before_save :update_introduction
 
-  sig { returns(User) }
   def reviewer
     review_requests.last&.user
   end
