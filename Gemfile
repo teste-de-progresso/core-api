@@ -22,6 +22,7 @@ gem 'pundit'
 gem 'enumerize'
 gem 'graphql'
 gem 'kaminari'
+gem 'sorbet-runtime'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'sorbet'
 end
 
 group :development do

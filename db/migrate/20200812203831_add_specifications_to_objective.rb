@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 class AddSpecificationsToObjective < ActiveRecord::Migration[6.0]

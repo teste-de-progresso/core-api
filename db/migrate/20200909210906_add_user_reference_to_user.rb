@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 class AddUserReferenceToUser < ActiveRecord::Migration[6.0]
