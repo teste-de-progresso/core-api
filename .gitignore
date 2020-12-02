@@ -32,5 +32,3 @@
 .local
 
 .env
-
-sorbet/rbi/hidden-definitions/errors.txt

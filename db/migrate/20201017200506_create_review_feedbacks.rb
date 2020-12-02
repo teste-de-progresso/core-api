@@ -1,4 +1,3 @@
-# typed: true
 # frozen_string_literal: true
 
 class CreateReviewFeedbacks < ActiveRecord::Migration[6.0]
