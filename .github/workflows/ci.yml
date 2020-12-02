@@ -120,4 +120,4 @@ jobs:
         run: bundle install --jobs 4 --retry 3 --path vendor/bundle
 
       - name: Run Sorbet type check
-        run: bundle exec srb tc
+        run: bundle exec srb tc . --ignore=/vendor
