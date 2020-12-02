@@ -26,6 +26,7 @@ class Question < ApplicationRecord
 
   before_save :update_introduction
 
+  sig { returns(User) }
   def reviewer
     review_requests.last&.user
   end

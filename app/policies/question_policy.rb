@@ -21,7 +21,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def create?
-    is?(:admin) || is?(:teacher)
+    @user.admin? || @user.teacher?
   end
 
   def new?
@@ -29,7 +29,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def update?
-    is?(:admin) || is?(:nde) || (is?(:teacher) && @record.user_id == @user.id)
+    @user.admin? || @user.nde? || (@user.teacher? && @record.user_id == @user.id)
   end
 
   def edit?
@@ -41,7 +41,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def finish?
-    (is?(:admin) || @record.user_id == @user.id) && @record.status.to_sym == :approved
+    (@user.admin? || @record.user_id == @user.id) && @record.status.to_sym == :approved
   end
 
   def permissions

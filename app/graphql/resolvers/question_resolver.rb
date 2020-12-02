@@ -3,6 +3,7 @@
 
 module Resolvers
   class QuestionResolver
+    sig { params(context: GraphQL::Query::Context, where: Hash).returns(ActiveRecord::Relation) }
     def initialize(context, where)
       @current_user = context[:current_user]
       @where = where.to_h

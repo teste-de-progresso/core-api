@@ -8,6 +8,7 @@ module Mutations
 
       argument :question, Inputs::Question::Save, required: true
 
+      sig { params(question: Inputs::Question::Save).returns(Types::Questions::Response) }
       def resolve(question:)
         input = question.to_h
         reviewer_id = input.delete(:reviewer_id)

@@ -2,6 +2,8 @@
 # frozen_string_literal: true
 
 class ApplicationPolicy
+  extend T::Sig
+
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -9,13 +11,12 @@ class ApplicationPolicy
     @record = record
   end
 
-  def is?(role)
-    @user.role?(role)
-  end
-
   class Scope
+    extend T::Sig
+
     attr_reader :user, :scope
 
+    sig { params(user: User, scope: ActiveRecord::Relation).returns(ActiveRecord::Relation) }
     def initialize(user, scope)
       @user = user
       @scope = scope
