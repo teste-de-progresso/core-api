@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 class AddColumnExplanationToObjectives < ActiveRecord::Migration[6.0]

@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 module Mutations
@@ -7,6 +8,7 @@ module Mutations
 
       argument :feedback, Inputs::Review::SendFeedback, required: true
 
+      sig { params(feedback: Inputs::Review::SendFeedback).returns(Types::Review::FeedbackReponse) }
       def resolve(feedback:)
         @inputs = feedback.to_h
 

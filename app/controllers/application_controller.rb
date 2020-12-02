@@ -1,6 +1,9 @@
+# typed: true
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  extend T::Sig
+
   def render_resource(resource)
     if resource.errors.empty?
       render json: resource
@@ -22,6 +25,7 @@ class ApplicationController < ActionController::API
     }, status: :bad_request
   end
 
+  sig { returns(User) }
   def current_user
     token = request.headers['Authorization']&.gsub(/^Bearer /, '')
     secret = Rails.env.production? ? ENV['DEVISE_JWT_SECRET_KEY'] : '1cb26f40-498b-4f72-a00a-e8633abc5957'
