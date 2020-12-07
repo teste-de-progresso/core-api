@@ -7,4 +7,6 @@ class ReviewFeedback < ApplicationRecord
   has_one :user, through: :review_request
 
   enumerize :status, in: %i[comment approve request_change]
+
+  default_scope { order(created_at: :desc) }
 end
