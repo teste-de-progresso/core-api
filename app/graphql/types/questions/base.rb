@@ -23,6 +23,7 @@ module Types
       field :reviewer, Types::Users::Details, null: true
 
       field :review_requests, [Types::Review::Request], null: false
+      field :review_feedbacks, [Types::Review::Feedback], null: false
 
       field :subject, Types::SubjectType, null: true
       field :user_id, Integer, null: true
