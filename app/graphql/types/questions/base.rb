@@ -3,7 +3,7 @@
 module Types
   module Questions
     class Base < Types::BaseObject
-      graphql_name 'QuestionType'
+      graphql_name 'Question'
 
       field :id, ID, null: false
       field :uuid, ID, null: false

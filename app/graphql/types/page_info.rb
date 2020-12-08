@@ -2,7 +2,7 @@
 
 module Types
   class PageInfo < Types::BaseObject
-    graphql_name 'PageInfoType'
+    graphql_name 'PageInfo'
 
     field :count, Integer, null: false
     field :limit_value, Integer, null: false

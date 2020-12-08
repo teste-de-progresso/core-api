@@ -11,6 +11,6 @@ describe Types::Core::User do
     it { is_expected.to have_field(:email).of_type 'String!' }
     it { is_expected.to have_field(:avatar_url).of_type 'String' }
     it { is_expected.to have_field(:roles).of_type '[UserRoles!]!' }
-    it { is_expected.to have_field(:active_review_requests).of_type '[ReviewRequestType!]!' }
+    it { is_expected.to have_field(:active_review_requests).of_type '[ReviewRequest!]!' }
   end
 end
