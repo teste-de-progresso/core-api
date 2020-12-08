@@ -10,6 +10,6 @@ describe Types::Review::Request do
     it { is_expected.to have_field(:answered).of_type 'Boolean!' }
     it { is_expected.to have_field(:responses).of_type '[ReviewFeedbackType!]!' }
     it { is_expected.to have_field(:question).of_type 'QuestionType!' }
-    it { is_expected.to have_field(:user).of_type 'Details!' }
+    it { is_expected.to have_field(:user).of_type 'User!' }
   end
 end

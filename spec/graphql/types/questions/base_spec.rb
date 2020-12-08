@@ -21,7 +21,7 @@ describe Types::Questions::Base do
     it { is_expected.to have_field(:bloom_taxonomy).of_type 'BloomTaxonomy' }
     it { is_expected.to have_field(:authorship_year).of_type 'String' }
     it { is_expected.to have_field(:source).of_type 'String' }
-    it { is_expected.to have_field(:reviewer).of_type 'Details' }
+    it { is_expected.to have_field(:reviewer).of_type 'User' }
     it { is_expected.to have_field(:review_requests).of_type '[ReviewRequestType!]!' }
     it { is_expected.to have_field(:subject).of_type 'Subject' }
     it { is_expected.to have_field(:user_id).of_type 'Int' }

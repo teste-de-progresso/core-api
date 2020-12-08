@@ -8,7 +8,7 @@ module Types
       field :id, ID, null: false
       field :status, FeedbackStatus, null: false
       field :comment, String, null: true
-      field :user, Users::Details, null: false
+      field :user, Types::Core::User, null: false
 
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
