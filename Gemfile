@@ -18,6 +18,7 @@ gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'pundit'
+gem 'httparty'
 
 gem 'enumerize'
 gem 'graphql'
