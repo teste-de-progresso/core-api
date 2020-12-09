@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Types
-  module Users
-    class Role < Types::BaseEnum
+  module Core
+    class UserRoles < Types::BaseEnum
       value 'admin'
       value 'teacher'
       value 'nde'

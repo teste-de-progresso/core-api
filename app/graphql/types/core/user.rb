@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Types
-  module Users
-    class Details < Types::BaseObject
+  module Core
+    class User < Types::BaseObject
       field :id, ID, null: false
       field :name, String, null: true
       field :email, String, null: false
       field :avatar_url, String, null: true
-      field :roles, [Role], null: false
+      field :roles, [UserRoles], null: false
       field :active_review_requests, [Types::Review::Request], null: false
 
       def avatar_url

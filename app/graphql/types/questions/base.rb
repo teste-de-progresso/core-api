@@ -3,7 +3,7 @@
 module Types
   module Questions
     class Base < Types::BaseObject
-      graphql_name 'QuestionType'
+      graphql_name 'Question'
 
       field :id, ID, null: false
       field :uuid, ID, null: false
@@ -20,7 +20,7 @@ module Types
       field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
       field :authorship_year, String, null: true
       field :source, String, null: true
-      field :reviewer, Types::Users::Details, null: true
+      field :reviewer, Types::Core::User, null: true
 
       field :review_requests, [Types::Review::Request], null: false
       field :review_feedbacks, [Types::Review::Feedback], null: false

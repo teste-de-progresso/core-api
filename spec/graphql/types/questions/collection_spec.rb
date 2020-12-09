@@ -6,6 +6,6 @@ describe Types::Questions::Collection do
   subject { described_class }
 
   describe 'fields' do
-    it { is_expected.to have_field(:payload).of_type 'QuestionCollectionPageType!' }
+    it { is_expected.to have_field(:payload).of_type 'QuestionCollectionPage!' }
   end
 end

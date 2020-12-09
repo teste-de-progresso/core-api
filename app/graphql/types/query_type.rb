@@ -24,13 +24,13 @@ module Types
       Subject.all
     end
 
-    field :my_user, Users::Details, null: false
+    field :my_user, Types::Core::User, null: false
 
     def my_user
       context[:current_user]
     end
 
-    field :reviewers, [Users::Details], null: false
+    field :reviewers, [Types::Core::User], null: false
 
     def reviewers
       User.joins(:roles).where(roles: { name: %i[teacher nde] })
