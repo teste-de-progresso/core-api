@@ -52,7 +52,7 @@ namespace :dev do
     teacher = User.find_by(email: 'teacher@example.com')
 
     50.times do |_i|
-      Objective.create(
+      Question.create(
         user_id: teacher.id,
         status: 'draft',
         difficulty: 'easy',
