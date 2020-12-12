@@ -24,7 +24,7 @@ module Types
       Subject.all
     end
 
-    field :my_user, Types::Core::User, null: false
+    field :my_user, Types::Core::User, null: true
 
     def my_user
       context[:current_user]

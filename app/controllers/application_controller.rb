@@ -23,11 +23,17 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    token = request.headers['Authorization']&.gsub(/^Bearer /, '')
-    secret = Rails.env.production? ? ENV['DEVISE_JWT_SECRET_KEY'] : '1cb26f40-498b-4f72-a00a-e8633abc5957'
-    user_id = JWT.decode(token, secret, true, algorithm: 'HS256', verify_jti: true).first['user_id']
-    User.find_by(id: user_id)
-  rescue JWT::DecodeError => e
-    raise e
+    token = request.headers['Authorization']
+    user_email = firebase_verification(token)
+    User.find_by(email: user_email)
+  end
+
+  def firebase_verification(token)
+    url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=#{ENV['FIREBASE_API_KEY']}"
+    firebase_verification_call = HTTParty.post(url, headers: { 'Content-Type' => 'application/json' }, body: { 'idToken' => token }.to_json)
+
+    return unless firebase_verification_call.response.code == '200'
+
+    firebase_verification_call['users'].first['email']
   end
 end
