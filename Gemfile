@@ -47,6 +47,7 @@ group :development do
 end
 
 group :test do
+  gem 'faker'
   gem 'rspec-graphql_matchers'
   gem 'shoulda-matchers', '~> 4.0'
 end

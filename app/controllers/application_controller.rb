@@ -24,8 +24,16 @@ class ApplicationController < ActionController::API
 
   def current_user
     token = request.headers['Authorization']
-    user_email = firebase_verification(token)
-    User.find_by(email: user_email)
+    find_or_initilize_user(token)
+  end
+
+  def find_or_initilize_user(token)
+    if token.nil?
+      User.new
+    else
+      user_email = firebase_verification(token)
+      User.find_by(email: user_email) || User.new
+    end
   end
 
   def firebase_verification(token)

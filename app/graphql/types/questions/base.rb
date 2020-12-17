@@ -11,7 +11,6 @@ module Types
       field :instruction, String, null: true
       field :body, String, null: true
       field :support, String, null: true
-      field :alternatives, [Alternative], null: true
       field :explanation, String, null: true
       field :references, String, null: true
       field :status, Types::Questions::Status, null: true
@@ -20,8 +19,9 @@ module Types
       field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
       field :authorship_year, String, null: true
       field :source, String, null: true
-      field :reviewer, Types::Core::User, null: true
 
+      field :alternatives, [Alternative], null: true
+      field :reviewer, Types::Core::User, null: true
       field :review_requests, [Types::Review::Request], null: false
       field :review_feedbacks, [Types::Review::Feedback], null: false
 

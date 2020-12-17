@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :axis do
-    name { 'Algoritmos de Alto Desempenho' }
+    name { Faker::Superhero.name }
   end
 end

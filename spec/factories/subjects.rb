@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :subject do
     axis
     category
-    name { 'Cálculo' }
+    name { Faker::Superhero.name }
   end
 end
