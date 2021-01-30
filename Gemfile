@@ -32,6 +32,7 @@ group :development, :test do
   gem 'rails-erd'
 
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 4.0.1'
 
   gem 'rubocop'

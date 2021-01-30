@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :question do
-    id { 104 }
+    uuid { SecureRandom.uuid }
     introduction { 'question title' }
     instruction { 'html raw' }
     support { 'html raw' }
