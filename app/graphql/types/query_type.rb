@@ -3,7 +3,7 @@
 module Types
   class QueryType < Types::BaseObject
     field :questions, Questions::Collection, null: false do
-      argument :where, Inputs::QuestionWhereInput, required: false
+      argument :where, Inputs::Question::Where, required: false
     end
 
     def questions(where: nil)

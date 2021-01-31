@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Inputs::QuestionWhereInput do
+describe Inputs::Question::Where do
   subject { described_class }
 
   describe 'arguments' do

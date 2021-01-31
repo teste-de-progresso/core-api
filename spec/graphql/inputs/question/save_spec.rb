@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Inputs::SaveQuestionInput do
+describe Inputs::Question::Save do
   subject { described_class }
 
   describe 'arguments' do
