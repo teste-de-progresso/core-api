@@ -24,6 +24,7 @@ gem 'graphql'
 gem 'kaminari'
 
 group :development, :test do
+  gem 'annotate'
   gem 'dotenv-rails'
 
   gem 'pry-byebug', platforms: %i[mri mingw x64_mingw]
