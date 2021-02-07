@@ -21,6 +21,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     -  'config/initializers/*'
+    -  'config/environments/*'
     -  'lib/tasks/*'
     -  'spec/**/*'
 
