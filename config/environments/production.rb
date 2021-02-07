@@ -8,6 +8,7 @@ Rails.application.configure do
   config.active_storage.service = :amazon
   config.log_level = :debug
   config.log_tags = [:request_id]
+  config.action_mailer.default_url_options = { host: ENV['URL_HOST'] }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
