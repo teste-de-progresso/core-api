@@ -7,8 +7,8 @@ describe Inputs::SaveQuestionInput do
 
   describe 'arguments' do
     it { is_expected.to accept_argument(:id).of_type 'ID' }
-    it { is_expected.to accept_argument(:instruction).of_type 'String' }
-    it { is_expected.to accept_argument(:support).of_type 'String' }
+    it { is_expected.to accept_argument(:instruction).of_type 'String!' }
+    it { is_expected.to accept_argument(:support).of_type 'String!' }
     it { is_expected.to accept_argument(:body).of_type 'String!' }
     it { is_expected.to accept_argument(:alternatives).of_type '[Alternative!]!' }
     it { is_expected.to accept_argument(:explanation).of_type 'String!' }
