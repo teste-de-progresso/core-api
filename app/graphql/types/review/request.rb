@@ -9,7 +9,7 @@ module Types
       field :answered, Boolean, null: false
       field :responses, [Feedback], null: false
       field :question, Types::Questions::Base, null: false
-      field :user, Types::Core::User, null: false
+      field :user, Types::Core::UserType, null: false
 
       def responses
         object.review_feedbacks
