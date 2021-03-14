@@ -55,5 +55,3 @@ end
 group :production do
   gem 'sentry-raven'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
