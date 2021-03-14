@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Types::Core::User do
+describe Types::Core::UserType do
   subject { described_class }
 
   describe 'fields' do

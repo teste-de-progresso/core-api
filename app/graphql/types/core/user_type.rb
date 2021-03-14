@@ -2,7 +2,9 @@
 
 module Types
   module Core
-    class User < Types::BaseObject
+    class UserType < Types::BaseObject
+      graphql_name 'User'
+
       field :id, ID, null: false
       field :name, String, null: true
       field :email, String, null: false

@@ -21,7 +21,7 @@ module Types
       field :source, String, null: true
 
       field :alternatives, [Alternative], null: true
-      field :reviewer, Types::Core::User, null: true
+      field :reviewer, Types::Core::UserType, null: true
       field :review_requests, [Types::Review::Request], null: false
       field :review_feedbacks, [Types::Review::Feedback], null: false
 

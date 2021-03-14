@@ -3,14 +3,14 @@
 require 'rails_helper'
 
 describe ProgressTestSchema do
-  describe '#my_user' do
+  describe '#current_user' do
     context 'when is authed' do
       it 'return user from context' do
         user = create(:user)
 
         query = <<~GQL
           query {
-            myUser {
+            currentUser {
               id
               name
               email
@@ -21,7 +21,7 @@ describe ProgressTestSchema do
         GQL
 
         expected_result = { data: {
-          myUser: {
+          currentUser: {
             id: user.id.to_s,
             name: user.name,
             email: user.email,
@@ -39,7 +39,7 @@ describe ProgressTestSchema do
       it 'return empty user' do
         query = <<~GQL
           query {
-            myUser {
+            currentUser {
               id
               name
               email
@@ -50,7 +50,7 @@ describe ProgressTestSchema do
         GQL
 
         expected_result = { data: {
-          myUser: nil
+          currentUser: nil
         } }.with_indifferent_access
 
         result = described_class.execute(query)
