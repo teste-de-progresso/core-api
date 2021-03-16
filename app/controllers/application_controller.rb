@@ -27,7 +27,7 @@ class ApplicationController < ActionController::API
     secret = Rails.env.production? ? ENV['DEVISE_JWT_SECRET_KEY'] : '1cb26f40-498b-4f72-a00a-e8633abc5957'
     user_id = JWT.decode(token, secret, true, algorithm: 'HS256', verify_jti: true).first['user_id']
     User.find_by(id: user_id)
-  rescue JWT::DecodeError => e
-    raise e
+  rescue JWT::DecodeError
+    User.new
   end
 end
