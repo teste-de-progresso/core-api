@@ -26,6 +26,11 @@ module Types
       field :review_feedbacks, [Types::Review::Feedback], null: false
 
       field :subject, Types::SubjectType, null: true
+
+      # def subject
+      #   dataloader.with(Sources::ActiveRecord, Subject).load(object.subject_id)
+      # end
+
       field :user_id, Integer, null: true
 
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false

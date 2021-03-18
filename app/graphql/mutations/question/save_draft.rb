@@ -24,7 +24,7 @@ module Mutations
                   .where.not(user_id: reviewer_id)
                   .destroy_all
 
-          if reviewer_id
+          if reviewer_id.present?
             ::ReviewRequest.find_or_create_by(
               question_id: question.id,
               user_id: reviewer_id
