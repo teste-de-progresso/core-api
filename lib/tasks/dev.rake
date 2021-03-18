@@ -74,14 +74,14 @@ namespace :dev do
       'Modelagem e Simulação',
       'Engenharia e Banco de Dados',
       'Redes e Sistemas Operacionais',
-      'Sistemas Inteligentes'
+      'Sistemas Inteligentes',
     ]
 
     axes = [
       'Algoritmos de Alto Desempenho',
       'Ciência, Tecnologia e Sociedade',
       'Sistemas de Software',
-      'Infraestrutura de Sistemas Computacionais'
+      'Infraestrutura de Sistemas Computacionais',
     ]
 
     subjects = [
@@ -113,7 +113,7 @@ namespace :dev do
       'Sistemas Inteligentes',
       'Robótica',
       'Computação Gráfica',
-      'Processamento de Sinais'
+      'Processamento de Sinais',
     ]
 
     axis_subject_algoritmo_desempenho = [
@@ -156,7 +156,7 @@ namespace :dev do
       'Programação Web',
       'Programação para Dispositivos Móveis',
       'Arquitetura de Computadores',
-      'Sistemas Digitais '
+      'Sistemas Digitais ',
     ]
 
     category_subject_modelagem_simluacao = [
@@ -166,17 +166,17 @@ namespace :dev do
       'Teoria da Computação',
       'Robótica',
       'Computação Gráfica',
-      'Processamento de Sinais'
+      'Processamento de Sinais',
     ]
 
     category_subject_engenharia_banco_dados = [
       'Engenharia de Software',
       'Banco de Dados',
-      'Gerência de Projetos'
+      'Gerência de Projetos',
     ]
     category_subject_redes_e_sistemas_op = [
       'Sistemas Operacionais',
-      'Redes de Computadores'
+      'Redes de Computadores',
     ]
 
     # category_subject_sistema_inteligente = [
@@ -283,21 +283,21 @@ namespace :dev do
   task setup: :environment do
     spinner = TTY::Spinner.new(':spinner Dropping database', format: :bouncing_ball)
     spinner.auto_spin
-    `rails db:drop`
+    %x(rails db:drop)
     spinner.success('(successful)')
 
     spinner = TTY::Spinner.new(':spinner Creating database', format: :bouncing_ball)
     spinner.auto_spin
-    `rails db:create`
+    %x(rails db:create)
     spinner.success('(successful)')
 
     spinner = TTY::Spinner.new(':spinner Running database migrations', format: :bouncing_ball)
     spinner.auto_spin
-    `rails db:migrate`
+    %x(rails db:migrate)
     spinner.success('(successful)')
 
-    `rails dev:users`
-    `rails dev:questions`
-    `rails dev:categories`
+    %x(rails dev:users)
+    %x(rails dev:questions)
+    %x(rails dev:categories)
   end
 end

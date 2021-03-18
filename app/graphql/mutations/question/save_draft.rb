@@ -21,8 +21,8 @@ module Mutations
 
         if question.update(input)
           question.review_requests
-                  .where.not(user_id: reviewer_id)
-                  .destroy_all
+            .where.not(user_id: reviewer_id)
+            .destroy_all
 
           if reviewer_id
             ::ReviewRequest.find_or_create_by(

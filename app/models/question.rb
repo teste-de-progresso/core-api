@@ -72,9 +72,9 @@ class Question < ApplicationRecord
     without_html_tags = body.gsub(%r{</?[^>]+?>}, ' ').gsub(/\s+/, ' ')
 
     self.introduction = if without_html_tags.size <= 20
-                          without_html_tags
-                        else
-                          without_html_tags[0, 20]
-                        end
+      without_html_tags
+    else
+      without_html_tags[0, 20]
+    end
   end
 end

@@ -12,11 +12,11 @@ Rails.application.routes.draw do
              path_names: {
                sign_in: 'login',
                sign_out: 'logout',
-               registration: 'signup'
+               registration: 'signup',
              },
              controllers: {
                sessions: 'auths/sessions',
                registrations: 'auths/registrations',
-               passwords: 'auths/passwords'
+               passwords: 'auths/passwords',
              }
 end

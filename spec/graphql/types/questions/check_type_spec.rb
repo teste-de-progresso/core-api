@@ -19,6 +19,6 @@ describe Types::Questions::CheckType do
       constant_alternatives
     ]
 
-    it { expect(described_class.values.keys).to match check_types }
+    it { expect(described_class.values.keys).to(match(check_types)) }
   end
 end

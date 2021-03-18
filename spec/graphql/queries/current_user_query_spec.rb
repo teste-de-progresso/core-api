@@ -26,12 +26,12 @@ describe ProgressTestSchema do
             name: user.name,
             email: user.email,
             avatarUrl: nil,
-            roles: []
-          }
+            roles: [],
+          },
         } }.with_indifferent_access
 
         result = described_class.execute(query, context: { current_user: user })
-        expect(result.to_h).to eq(expected_result)
+        expect(result.to_h).to(eq(expected_result))
       end
     end
 
@@ -50,11 +50,11 @@ describe ProgressTestSchema do
         GQL
 
         expected_result = { data: {
-          currentUser: nil
+          currentUser: nil,
         } }.with_indifferent_access
 
         result = described_class.execute(query)
-        expect(result.to_h).to eq(expected_result)
+        expect(result.to_h).to(eq(expected_result))
       end
     end
   end

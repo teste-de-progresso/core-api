@@ -17,7 +17,7 @@ Rails.application.configure do
     port: ENV['MAILGUN_SMTP_PORT'],
     domain: ENV['MAILGUN_DOMAIN'],
     user_name: ENV['MAILGUN_SMTP_LOGIN'],
-    password: ENV['MAILGUN_SMTP_PASSWORD']
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
   }
 
   config.i18n.fallbacks = true

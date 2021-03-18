@@ -40,7 +40,7 @@ class User < ApplicationRecord
       user_id: id,
       name: name,
       email: email,
-      roles: roles.map { |r| r.name.underscore }
+      roles: roles.map { |r| r.name.underscore },
     }
   end
 

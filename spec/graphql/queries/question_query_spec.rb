@@ -51,12 +51,12 @@ describe ProgressTestSchema do
             bloomTaxonomy: question.bloom_taxonomy,
             authorshipYear: question.authorship_year,
             source: question.source,
-            alternatives: question.alternatives
-          }
+            alternatives: question.alternatives,
+          },
         } }.with_indifferent_access
 
         result = described_class.execute(query, variables: { uuid: question.uuid }, context: context)
-        expect(result.to_h).to eq(expected_result)
+        expect(result.to_h).to(eq(expected_result))
       end
     end
   end

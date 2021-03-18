@@ -34,7 +34,7 @@ module Types
 
     def reviewers
       User.joins(:roles).where(roles: { name: %i[teacher nde] })
-          .where.not(id: context[:current_user].id).distinct
+        .where.not(id: context[:current_user].id).distinct
     end
   end
 end

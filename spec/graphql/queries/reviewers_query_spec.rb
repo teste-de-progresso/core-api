@@ -25,18 +25,18 @@ describe ProgressTestSchema do
           {
             id: user1.id.to_s,
             name: user1.name,
-            roles: user1.roles.map(&:name)
+            roles: user1.roles.map(&:name),
           },
           {
             id: user2.id.to_s,
             name: user2.name,
-            roles: user2.roles.map(&:name)
-          }
-        ]
+            roles: user2.roles.map(&:name),
+          },
+        ],
       } }.with_indifferent_access
 
       result = described_class.execute(query, context: context)
-      expect(result.to_h).to eq(expected_result)
+      expect(result.to_h).to(eq(expected_result))
     end
   end
 end

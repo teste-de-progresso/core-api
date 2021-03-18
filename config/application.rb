@@ -21,11 +21,11 @@ Dotenv::Railtie.load unless Rails.env.production?
 
 module ProgressTest
   class Application < Rails::Application
-    config.load_defaults 6.0
+    config.load_defaults(6.0)
     config.api_only = true
 
     config.to_prepare do
-      DeviseController.respond_to :json
+      DeviseController.respond_to(:json)
     end
   end
 end

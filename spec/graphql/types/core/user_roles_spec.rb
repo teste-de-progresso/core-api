@@ -6,6 +6,6 @@ describe Types::Core::UserRoles do
   subject { described_class }
 
   describe 'values' do
-    it { expect(described_class.values.keys).to match %w[admin teacher nde coordinator center_director pro_rector] }
+    it { expect(described_class.values.keys).to(match(%w[admin teacher nde coordinator center_director pro_rector])) }
   end
 end

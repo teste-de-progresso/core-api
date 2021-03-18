@@ -2,6 +2,6 @@
 
 class RemoveOwnColumnFromQuestion < ActiveRecord::Migration[6.0]
   def change
-    remove_column :questions, :own, :boolean
+    remove_column(:questions, :own, :boolean)
   end
 end
