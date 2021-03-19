@@ -20,25 +20,25 @@ module Types
       field :authorship_year, String, null: true
       field :source, String, null: true
 
-      field :alternatives, [Alternative], null: true
+      field :alternatives, [Alternative], null: false
       field :reviewer, Types::Core::UserType, null: true
       field :review_requests, [Types::Review::Request], null: false
       field :review_feedbacks, [Types::Review::Feedback], null: false
 
       field :subject, Types::SubjectType, null: true
 
-      # def subject
-      #   dataloader.with(Sources::ActiveRecord, Subject).load(object.subject_id)
-      # end
+      def subject
+        dataloader.with(Sources::ActiveRecord, Subject).load(object.subject_id)
+      end
 
-      field :user_id, Integer, null: true
+      field :user, Core::UserType, null: false
+
+      def user
+        dataloader.with(Sources::ActiveRecord, User).load(object.user_id)
+      end
 
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-
-      def alternatives
-        object.alternatives || []
-      end
     end
   end
 end

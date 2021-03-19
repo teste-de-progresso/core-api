@@ -3,7 +3,6 @@
 module Sources
   class ActiveRecord < GraphQL::Dataloader::Source
     def initialize(model_class)
-      super
       @model_class = model_class
     end
 

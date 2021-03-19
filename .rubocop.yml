@@ -220,3 +220,6 @@ RSpec/ExampleLength:
 RSpec/FilePath:
   Exclude:
     -  'spec/graphql/queries/**/*'
+
+Lint/MissingSuper:
+  Enabled: false
