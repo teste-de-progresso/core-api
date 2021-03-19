@@ -5,7 +5,7 @@
 # Table name: questions
 #
 #  id              :bigint           not null, primary key
-#  alternatives    :jsonb
+#  alternatives    :jsonb            not null
 #  authorship_year :string
 #  bloom_taxonomy  :string
 #  body            :text
