@@ -196,7 +196,7 @@
 <text text-anchor="start" x="371" y="-549.5" font-family="Arial" font-size="10.00">encrypted_password </text>
 <text text-anchor="start" x="465" y="-549.5" font-family="Arial Italic" font-size="10.00" fill="#999999">string ∗</text>
 <text text-anchor="start" x="371" y="-536.5" font-family="Arial" font-size="10.00">name </text>
-<text text-anchor="start" x="399" y="-536.5" font-family="Arial Italic" font-size="10.00" fill="#999999">string</text>
+<text text-anchor="start" x="399" y="-536.5" font-family="Arial Italic" font-size="10.00" fill="#999999">string ∗</text>
 <text text-anchor="start" x="371" y="-523.5" font-family="Arial" font-size="10.00">remember_created_at </text>
 <text text-anchor="start" x="469" y="-523.5" font-family="Arial Italic" font-size="10.00" fill="#999999">datetime</text>
 <text text-anchor="start" x="371" y="-510.5" font-family="Arial" font-size="10.00">reset_password_sent_at </text>

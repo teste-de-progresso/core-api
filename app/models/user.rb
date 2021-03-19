@@ -31,6 +31,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :roles
   has_one_base64_attached :avatar
 
+  validates :name, presence: true
+
   def role?(role)
     roles.any? { |r| r.name.underscore.to_sym == role }
   end

@@ -6,7 +6,7 @@ module Types
       graphql_name 'User'
 
       field :id, ID, null: false
-      field :name, String, null: true
+      field :name, String, null: false
       field :email, String, null: false
       field :avatar_url, String, null: true
       field :roles, [UserRoles], null: false
