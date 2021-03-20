@@ -12,11 +12,11 @@ class QuestionPolicy < ApplicationPolicy
   ].freeze
 
   def index?
-    true
+    @user.persisted?
   end
 
   def show?
-    true
+    @user.persisted?
   end
 
   def create?
@@ -36,7 +36,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    false
+    @record.user_id == @user.id && @record.status == 'finished'
   end
 
   def finish?
