@@ -12,11 +12,11 @@ class QuestionPolicy < ApplicationPolicy
   ].freeze
 
   def index?
-    true
+    @user.persisted?
   end
 
   def show?
-    true
+    @user.persisted?
   end
 
   def create?
@@ -36,11 +36,11 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    false
+    @record.user_id == @user.id && @record.status != 'finished'
   end
 
   def finish?
-    (is?(:admin) || @record.user_id == @user.id) && @record.status.to_sym == :approved
+    (is?(:admin) || @record.user_id == @user.id) && @record.status == 'approved'
   end
 
   def permissions
