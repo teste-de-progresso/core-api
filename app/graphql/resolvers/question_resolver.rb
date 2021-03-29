@@ -4,7 +4,7 @@ module Resolvers
   class QuestionResolver
     def initialize(context, where)
       @current_user = context[:current_user]
-      @where = where.to_h
+      @where = where
     end
 
     def payload

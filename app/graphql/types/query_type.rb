@@ -7,7 +7,7 @@ module Types
     end
 
     def questions(where: nil)
-      Resolvers::QuestionResolver.new(context, where).payload
+      Resolvers::QuestionResolver.new(context, where.to_h).payload
     end
 
     field :question, Questions::Base, null: true do
