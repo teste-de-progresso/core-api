@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post '/', to: 'graphql#execute'
 
+  mount GraphqlPlayground::Rails::Engine, at: '/playground', graphql_path: '/' if Rails.env.development?
+
   devise_for :users,
              path: '',
              path_names: {
