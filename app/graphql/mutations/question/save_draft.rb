@@ -15,8 +15,6 @@ module Mutations
         question = input[:id] ? ::Question.find_by(id: input[:id]) : ::Question.new(user_id: user.id)
         policy = QuestionPolicy.new(user, question)
 
-        question.status = 'draft'
-
         return {} unless input[:id] ? policy.update? : policy.create?
 
         if question.update(input)
