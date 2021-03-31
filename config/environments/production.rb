@@ -32,7 +32,7 @@ Rails.application.configure do
 
   config.active_record.dump_schema_after_migration = false
 
-  Sentry.configure do |config|
+  Sentry.init do |config|
     config.dsn = ENV['SENTRYURL']
   end
 end
