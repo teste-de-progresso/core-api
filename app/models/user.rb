@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :review_requests, dependent: :destroy
   has_and_belongs_to_many :roles
   has_one_base64_attached :avatar
+  has_many :notifications, as: :recipient, dependent: :destroy
 
   validates :name, presence: true
 

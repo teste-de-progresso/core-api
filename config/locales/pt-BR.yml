@@ -1,0 +1,4 @@
+pt-BR:
+  notifications:
+    review_request:
+      message: 'Você recebeu uma solicitação de %{user_name} para revisar a questão #${question_id}'
