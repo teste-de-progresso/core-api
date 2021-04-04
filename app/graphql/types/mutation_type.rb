@@ -2,10 +2,10 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :save_question, mutation: Mutations::Question::Save
-    field :save_question_draft, mutation: Mutations::Question::SaveDraft
+    field :create_question, mutation: Mutations::CreateQuestion
+    field :update_question, mutation: Mutations::UpdateQuestion
+    field :destroy_question, mutation: Mutations::DestroyQuestion
+    field :finish_question, mutation: Mutations::FinishQuestion
     field :send_feedback, mutation: Mutations::Review::SendFeedback
-    field :finish_question, mutation: Mutations::Question::Finish
-    field :destroy_question, mutation: Mutations::Question::Destroy
   end
 end
