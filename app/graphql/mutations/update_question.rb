@@ -18,11 +18,13 @@ module Mutations
       ActiveRecord::Base.transaction do
         record.update!(question)
 
-        review_request = record.review_requests.find_or_create_by!(
-          user_id: reviewer_user_id
-        )
+        if reviewer_user_id.present?
+          review_request = record.review_requests.find_or_create_by!(
+            user_id: reviewer_user_id
+          )
 
-        review_request.update!(answered: false)
+          review_request.update!(answered: false)
+        end
 
         { payload: record }
       rescue ActiveRecord::RecordInvalid

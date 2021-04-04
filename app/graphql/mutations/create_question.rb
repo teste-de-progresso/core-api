@@ -19,11 +19,11 @@ module Mutations
 
       ActiveRecord::Base.transaction do
         record.save!
-        record.review_requests.create!(user_id: reviewer_user_id)
+        record.review_requests.create!(user_id: reviewer_user_id) if reviewer_user_id.present?
 
         { payload: record }
       rescue ActiveRecord::RecordInvalid
-        { errors: ::ResponseError.from_active_record_model(record) }
+        { errors: ResponseError.from_active_record_model(record) }
       end
     end
   end
