@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :prod do
-  desc 'Create role'
+  desc "Create role"
   task roles: :environment do
     roles = %i[
       admin
@@ -12,13 +12,13 @@ namespace :prod do
       pro_rector
     ]
 
-    spinner = TTY::Spinner.new(':spinner Creating user for each role', format: :bouncing_ball)
+    spinner = TTY::Spinner.new(":spinner Creating user for each role", format: :bouncing_ball)
     spinner.auto_spin
 
     roles.each do |role|
       Role.create(name: role)
     end
 
-    spinner.success('(successful)')
+    spinner.success("(successful)")
   end
 end

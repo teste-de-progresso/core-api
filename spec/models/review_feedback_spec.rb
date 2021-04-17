@@ -19,11 +19,11 @@
 #
 #  fk_rails_...  (review_request_id => review_requests.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe ReviewFeedback, type: :model do
-  describe 'associations' do
-    it { is_expected.to belong_to(:review_request) }
-    it { is_expected.to have_one(:user) }
+RSpec.describe(ReviewFeedback, type: :model) do
+  describe "associations" do
+    it { is_expected.to(belong_to(:review_request)) }
+    it { is_expected.to(have_one(:user)) }
   end
 end

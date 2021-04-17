@@ -19,11 +19,11 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe User, type: :model do
-  describe 'associations' do
-    it { is_expected.to have_and_belong_to_many(:roles) }
-    it { is_expected.to have_many(:questions) }
+RSpec.describe(User, type: :model) do
+  describe "associations" do
+    it { is_expected.to(have_and_belong_to_many(:roles)) }
+    it { is_expected.to(have_many(:questions)) }
   end
 end

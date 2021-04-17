@@ -23,8 +23,8 @@ class User < ApplicationRecord
   include ActiveStorageSupport::SupportForBase64
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
+    :recoverable, :rememberable, :validatable,
+    :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
   has_many :questions, dependent: :destroy
   has_many :review_requests, dependent: :destroy
@@ -38,7 +38,7 @@ class User < ApplicationRecord
       user_id: id,
       name: name,
       email: email,
-      roles: roles.map { |r| r.name.underscore }
+      roles: roles.map { |r| r.name.underscore },
     }
   end
 

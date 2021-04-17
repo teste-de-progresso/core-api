@@ -3,7 +3,7 @@
 module Types
   module Review
     class Feedback < Types::BaseObject
-      graphql_name 'ReviewFeedback'
+      graphql_name "ReviewFeedback"
 
       field :id, ID, null: false
       field :status, FeedbackStatus, null: false

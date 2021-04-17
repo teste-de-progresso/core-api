@@ -28,10 +28,10 @@ module Types
 
     def reviewers
       UserPolicy::Scope.new(context[:current_user], User)
-                       .resolve
-                       .joins(:roles)
-                       .where(roles: { name: %i[teacher nde] })
-                       .distinct
+        .resolve
+        .joins(:roles)
+        .where(roles: { name: %i[teacher nde] })
+        .distinct
     end
 
     field :current_user, Types::Core::UserType, null: true

@@ -3,7 +3,7 @@
 module Types
   module Review
     class Request < Types::BaseObject
-      graphql_name 'ReviewRequest'
+      graphql_name "ReviewRequest"
 
       field :id, ID, null: false
       field :answered, Boolean, null: false

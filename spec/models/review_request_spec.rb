@@ -21,12 +21,12 @@
 #  fk_rails_...  (question_id => questions.id)
 #  fk_rails_...  (user_id => users.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe ReviewRequest, type: :model do
-  describe 'associations' do
-    it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:question) }
-    it { is_expected.to have_many(:review_feedbacks) }
+RSpec.describe(ReviewRequest, type: :model) do
+  describe "associations" do
+    it { is_expected.to(belong_to(:user)) }
+    it { is_expected.to(belong_to(:question)) }
+    it { is_expected.to(have_many(:review_feedbacks)) }
   end
 end

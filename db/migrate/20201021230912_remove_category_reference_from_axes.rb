@@ -2,6 +2,6 @@
 
 class RemoveCategoryReferenceFromAxes < ActiveRecord::Migration[6.0]
   def change
-    remove_reference :axes, :sub_category
+    remove_reference(:axes, :sub_category)
   end
 end

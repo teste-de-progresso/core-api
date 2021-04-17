@@ -3,9 +3,9 @@
 module Types
   module Review
     class FeedbackStatus < Types::BaseEnum
-      value 'comment'
-      value 'approve'
-      value 'request_change'
+      value "comment"
+      value "approve"
+      value "request_change"
     end
   end
 end

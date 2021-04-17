@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Types::Questions::CheckType do
   subject { described_class }
 
-  describe 'values' do
+  describe "values" do
     check_types = %w[
       unique_answer
       incomplete_affirmation
@@ -19,6 +19,6 @@ describe Types::Questions::CheckType do
       constant_alternatives
     ]
 
-    it { expect(described_class.values.keys).to match check_types }
+    it { expect(described_class.values.keys).to(match(check_types)) }
   end
 end

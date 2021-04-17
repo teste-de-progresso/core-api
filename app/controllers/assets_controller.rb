@@ -5,20 +5,20 @@ class AssetsController < ApplicationController
     @upload = Upload.new(file: params[:upload])
 
     if @upload.save!
-      render json: {
+      render(json: {
         uploaded: true,
-        url: rails_blob_url(@upload.file, only_path: false)
-      }.to_json
+        url: rails_blob_url(@upload.file, only_path: false),
+      }.to_json)
     else
-      render json: { uploaded: false }
+      render(json: { uploaded: false })
     end
   end
 
   def update_user_avatar
     if current_user.avatar.attach({ data: params[:upload] })
-      render json: { updated: true }
+      render(json: { updated: true })
     else
-      render json: { updated: false }
+      render(json: { updated: false })
     end
   end
 end
