@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-`rails dev:users`
-`rails dev:categories`
+%x(rails dev:users)
+%x(rails dev:categories)

@@ -2,6 +2,6 @@
 
 class RemoveUserReferenceFromUser < ActiveRecord::Migration[6.0]
   def change
-    remove_reference :uploads, :user
+    remove_reference(:uploads, :user)
   end
 end

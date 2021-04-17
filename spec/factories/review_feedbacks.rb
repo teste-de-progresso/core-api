@@ -22,7 +22,7 @@
 FactoryBot.define do
   factory :review_feedback do
     review_request
-    status { 'MyString' }
-    comment { 'MyText' }
+    status { "MyString" }
+    comment { "MyText" }
   end
 end

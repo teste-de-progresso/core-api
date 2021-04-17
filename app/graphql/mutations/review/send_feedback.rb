@@ -11,10 +11,10 @@ module Mutations
         @inputs = feedback.to_h
 
         request = ::Question.select(:id)
-                            .find(@inputs[:question_id])
-                            .review_requests
-                            .where(user_id: context[:current_user].id)
-                            .order(created_at: :desc).first
+          .find(@inputs[:question_id])
+          .review_requests
+          .where(user_id: context[:current_user].id)
+          .order(created_at: :desc).first
 
         @feedback = ReviewFeedback.new(
           review_request_id: request.id,
@@ -42,8 +42,8 @@ module Mutations
         return if @inputs[:status].to_sym != :approve
 
         @feedback.review_request
-                 .question
-                 .update(status: :approved)
+          .question
+          .update(status: :approved)
       end
     end
   end

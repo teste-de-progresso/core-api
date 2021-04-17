@@ -10,22 +10,16 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.jwt do |jwt|
-    jwt.secret = Rails.env.production? ? ENV['DEVISE_JWT_SECRET_KEY'] : '1cb26f40-498b-4f72-a00a-e8633abc5957'
+    jwt.secret = Rails.env.production? ? ENV["DEVISE_JWT_SECRET_KEY"] : "1cb26f40-498b-4f72-a00a-e8633abc5957"
 
     jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
+      ["POST", %r{^/login$}],
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
+      ["DELETE", %r{^/logout$}],
     ]
     jwt.expiration_time = 1.day.to_i
   end
-  # The secret key used by Devise. Devise uses this key to generate
-  # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
-  # Devise will use the `secret_key_base` as its `secret_key`
-  # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'bdad404dbf66fe35f79ecf01def895afb3b3ab7a8b95d615f45a382e6588246fc27071142c7302b4284cc8f35e383ca7c7070975017eb8f49e3edb6e32037f9c'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -35,7 +29,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV['DEVISE_MAILER_SENDER']
+  config.mailer_sender = ENV["DEVISE_MAILER_SENDER"]
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -47,7 +41,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -135,9 +129,6 @@ Devise.setup do |config|
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 12
-
-  # Set up a pepper to generate the hashed password.
-  # config.pepper = '4b7f85c714dc3bc723344cab31b0925868d2735baed5b2f0ec2328b78b68df66286268386b77ce13de8cedc37ee36b4a4eb24a21874fa19107b6529d106174ee'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

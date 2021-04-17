@@ -5,13 +5,18 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = { current_user: current_user }
+
+    context = {
+      current_user: current_user,
+    }
+
     result = ProgressTestSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
-    render json: result
+
+    render(json: result)
   rescue StandardError => e
     raise e unless Rails.env.development?
 
-    handle_error_in_development e
+    handle_error_in_development(e)
   end
 
   private
@@ -35,9 +40,12 @@ class GraphqlController < ApplicationController
   end
 
   def handle_error_in_development(exception)
-    logger.error exception.message
-    logger.error exception.backtrace.join("\n")
+    logger.error(exception.message)
+    logger.error(exception.backtrace.join("\n"))
 
-    render json: { errors: [{ message: exception.message, backtrace: exception.backtrace }], data: {} }, status: :internal_server_error
+    render(
+      json: { errors: [{ message: exception.message, backtrace: exception.backtrace }], data: {} },
+      status: :internal_server_error
+    )
   end
 end

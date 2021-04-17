@@ -34,13 +34,13 @@
 #
 #  fk_rails_...  (subject_id => subjects.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Question, type: :model do
-  describe 'associations' do
-    it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:subject).optional(true) }
-    it { is_expected.to have_many(:review_requests) }
-    it { is_expected.to have_many(:review_feedbacks) }
+RSpec.describe(Question, type: :model) do
+  describe "associations" do
+    it { is_expected.to(belong_to(:user)) }
+    it { is_expected.to(belong_to(:subject).optional(true)) }
+    it { is_expected.to(have_many(:review_requests)) }
+    it { is_expected.to(have_many(:review_feedbacks)) }
   end
 end
