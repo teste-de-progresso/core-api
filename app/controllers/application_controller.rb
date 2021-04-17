@@ -28,6 +28,6 @@ class ApplicationController < ActionController::API
     user_id = JWT.decode(token, secret, true, algorithm: 'HS256', verify_jti: true).first['user_id']
     User.find_by(id: user_id)
   rescue JWT::DecodeError
-    User.new
+    OpenStruct.new(roles: [])
   end
 end

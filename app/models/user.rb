@@ -33,10 +33,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def role?(role)
-    roles.any? { |r| r.name.underscore.to_sym == role }
-  end
-
   def jwt_payload
     {
       user_id: id,
