@@ -9,7 +9,7 @@ class ApplicationPolicy
   end
 
   def is?(role)
-    @user.role?(role)
+    @user.roles.any? { |r| r.name.underscore.to_sym == role }
   end
 
   class Scope
@@ -21,13 +21,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      user_roles = user.roles.map { |r| r.name.to_sym }
-
-      if user_roles == [:teacher]
-        scope.where(user_id: user.id)
-      else
-        scope.all
-      end
+      raise NotImplementedError
     end
   end
 end

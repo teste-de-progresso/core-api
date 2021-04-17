@@ -7,7 +7,7 @@ module Types
     end
 
     def questions(where: nil)
-      Resolvers::QuestionResolver.new(context, where.to_h).payload
+      QuestionPolicy::Scope.new(context[:current_user], Question).resolve.where(where.to_h).order(updated_at: :desc)
     end
 
     field :question, Questions::Base, null: true do
@@ -15,26 +15,29 @@ module Types
     end
 
     def question(uuid:)
-      Question.find_by(uuid: uuid)
+      QuestionPolicy::Scope.new(context[:current_user], Question).resolve.find_by(uuid: uuid)
     end
 
-    field :subjects, [SubjectType], null: false
+    field :subjects, SubjectType.connection_type, null: false
 
     def subjects
-      Subject.all
+      SubjectPolicy::Scope.new(context[:current_user], Subject).resolve
+    end
+
+    field :reviewers, Types::Core::UserType.connection_type, null: false
+
+    def reviewers
+      UserPolicy::Scope.new(context[:current_user], User)
+                       .resolve
+                       .joins(:roles)
+                       .where(roles: { name: %i[teacher nde] })
+                       .distinct
     end
 
     field :current_user, Types::Core::UserType, null: true
 
     def current_user
       context[:current_user]
-    end
-
-    field :reviewers, [Types::Core::UserType], null: false
-
-    def reviewers
-      User.joins(:roles).where(roles: { name: %i[teacher nde] })
-          .where.not(id: context[:current_user].id).distinct
     end
   end
 end
