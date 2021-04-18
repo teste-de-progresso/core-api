@@ -1,7 +1,9 @@
 # frozen_string_literal: true
-
 module Types
   class QueryType < Types::BaseObject
+    # include GraphQL::Types::Relay::HasNodeField
+    # include GraphQL::Types::Relay::HasNodesField
+
     field :questions, Questions::Base.connection_type, null: false do
       argument :where, Inputs::QuestionWhereInput, required: false
     end
