@@ -43,7 +43,11 @@ class User < ApplicationRecord
   end
 
   def active_review_requests
-    review_requests.where(answered: false)
+    review_requests.active
+  end
+
+  def inactive_review_requests
+    review_requests.inactive
   end
 
   def avatar_url
