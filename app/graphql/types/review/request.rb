@@ -9,7 +9,7 @@ module Types
       field :answered, Boolean, null: false
       field :responses, [Feedback], null: false
 
-      field :question, Types::Questions::Base, null: false
+      field :question, Types::QuestionType, null: false
 
       def question
         dataloader.with(Sources::ActiveRecord, Question).load(object.question_id)

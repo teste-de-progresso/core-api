@@ -2,7 +2,7 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :questions, Questions::Base.connection_type, null: false do
+    field :questions, QuestionType.connection_type, null: false do
       argument :where, Inputs::QuestionWhereInput, required: false
     end
 
@@ -10,7 +10,7 @@ module Types
       QuestionPolicy::Scope.new(context[:current_user], Question).resolve.where(where.to_h).order(updated_at: :desc)
     end
 
-    field :question, Questions::Base, null: true do
+    field :question, QuestionType, null: true do
       argument :uuid, ID, required: true
     end
 
