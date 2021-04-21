@@ -2,7 +2,7 @@
 
 module Mutations
   class FinishQuestion < BaseMutation
-    type Types::Questions::Response
+    field :question, Types::QuestionType, null: true
 
     argument :question_id, ID, required: true
 
@@ -10,15 +10,17 @@ module Mutations
       user = context[:current_user]
 
       question = ::Question.find(input[:question_id])
-      policy = QuestionPolicy.new(user, question)
 
-      return {} unless policy.finish?
+      raise Pundit::NotAuthorizedError unless QuestionPolicy.new(user, question).finish?
 
       if question.update(status: :finished)
-        { payload: question }
+        { question: question, errors: [] }
       else
-        { errors: ::ResponseError.from_active_record_model(question) }
+        { question: nil, errors: question.errors.full_messages }
       end
+
+    rescue Pundit::NotAuthorizedError => e
+      { question: nil, errors: [e.message] }
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module Mutations
   class UpdateQuestion < BaseMutation
-    type Types::Questions::Response
+    field :question, Types::QuestionType, null: true
 
     argument :question, Inputs::QuestionUpdateInput, required: true
 
@@ -11,9 +11,8 @@ module Mutations
       reviewer_user_id = question.delete(:reviewer_user_id)
 
       record = Question.find(question[:id])
-      policy = QuestionPolicy.new(context[:current_user], record)
 
-      return {} unless policy.update?
+      raise Pundit::NotAuthorizedError unless QuestionPolicy.new(context[:current_user], record).update?
 
       ActiveRecord::Base.transaction do
         record.update!(question)
@@ -26,10 +25,13 @@ module Mutations
           review_request.update!(answered: false)
         end
 
-        { payload: record }
+        { question: record, errors: [] }
       rescue ActiveRecord::RecordInvalid
-        { errors: ResponseError.from_active_record_model(record) }
+        { question: nil, errors: question.errors.full_messages }
       end
+
+    rescue Pundit::NotAuthorizedError => e
+      { question: nil, errors: [e.message] }
     end
   end
 end

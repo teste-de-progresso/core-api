@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::Questions::Base do
+describe Types::QuestionType do
   subject { described_class }
 
   describe "fields" do

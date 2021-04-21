@@ -2,7 +2,7 @@
 
 module Mutations
   class CreateQuestion < BaseMutation
-    type Types::Questions::Response
+    field :question, Types::QuestionType, null: true
 
     argument :question, Inputs::QuestionCreateInput, required: true
 
@@ -15,16 +15,19 @@ module Mutations
 
       policy = QuestionPolicy.new(context[:current_user], record)
 
-      return {} unless policy.create?
+      raise Pundit::NotAuthorizedError unless policy.create?
 
       ActiveRecord::Base.transaction do
         record.save!
         record.review_requests.create!(user_id: reviewer_user_id) if reviewer_user_id.present?
 
-        { payload: record }
+        { question: record, errors: [] }
       rescue ActiveRecord::RecordInvalid
-        { errors: ResponseError.from_active_record_model(record) }
+        { question: nil, errors: record.errors.full_messages }
       end
+
+    rescue Pundit::NotAuthorizedError => e
+      { question: nil, errors: [e.message] }
     end
   end
 end
