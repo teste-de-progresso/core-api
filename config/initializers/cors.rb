@@ -7,13 +7,13 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
+Rails.application.config.middleware.insert_before(0, Rack::Cors) do
   allow do
-    origins '*'
-    resource '*',
-             headers: :any,
-             methods: [:get, :post, :delete, :put, :patch, :options, :head],
-             max_age: 0,
-             expose: ['Authorization']
+    origins "*"
+    resource "*",
+      headers: :any,
+      methods: [:get, :post, :delete, :put, :patch, :options, :head],
+      max_age: 0,
+      expose: ["Authorization"]
   end
 end
