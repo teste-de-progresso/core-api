@@ -2,10 +2,10 @@
 
 module Types
   class QuestionType < Types::BaseObject
+    implements GraphQL::Types::Relay::Node
     graphql_name "Question"
 
-    field :id, ID, null: false
-    field :uuid, ID, null: false
+    global_id_field :id
     field :introduction, String, null: true
     field :instruction, String, null: true
     field :body, String, null: true
