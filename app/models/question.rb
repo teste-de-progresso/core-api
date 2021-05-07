@@ -58,10 +58,6 @@ class Question < ApplicationRecord
 
   before_save :update_introduction
 
-  before_create do
-    self.uuid = SecureRandom.uuid
-  end
-
   def reviewer
     review_requests.last&.user
   end
