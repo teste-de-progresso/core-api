@@ -1,21 +1,15 @@
 # frozen_string_literal: true
-
 module Types
   class QueryType < Types::BaseObject
+    include GraphQL::Types::Relay::HasNodeField
+    include GraphQL::Types::Relay::HasNodesField
+
     field :questions, QuestionType.connection_type, null: false do
       argument :where, Inputs::QuestionWhereInput, required: false
     end
 
     def questions(where: nil)
       QuestionPolicy::Scope.new(context[:current_user], Question).resolve.where(where.to_h).order(updated_at: :desc)
-    end
-
-    field :question, QuestionType, null: true do
-      argument :uuid, ID, required: true
-    end
-
-    def question(uuid:)
-      QuestionPolicy::Scope.new(context[:current_user], Question).resolve.find_by(uuid: uuid)
     end
 
     field :subjects, SubjectType.connection_type, null: false

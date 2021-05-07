@@ -18,7 +18,6 @@
 #  source          :string
 #  status          :string           default("draft"), not null
 #  support         :text
-#  uuid            :uuid             not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  subject_id      :bigint
@@ -28,7 +27,6 @@
 #
 #  index_questions_on_subject_id  (subject_id)
 #  index_questions_on_user_id     (user_id)
-#  index_questions_on_uuid        (uuid)
 #
 # Foreign Keys
 #
