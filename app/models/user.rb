@@ -33,15 +33,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def jwt_payload
-    {
-      user_id: id,
-      name: name,
-      email: email,
-      roles: roles.map { |r| r.name.underscore },
-    }
-  end
-
   def active_review_requests
     review_requests.active
   end
