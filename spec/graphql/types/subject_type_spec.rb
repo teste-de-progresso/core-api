@@ -10,6 +10,6 @@ describe Types::SubjectType do
     it { is_expected.to(have_field(:name).of_type("String!")) }
     it { is_expected.to(have_field(:axis).of_type("Axis!")) }
     it { is_expected.to(have_field(:category).of_type("Category!")) }
-    it { is_expected.to(have_field(:questions).of_type("[Question!]!")) }
+    it { is_expected.to(have_field(:questions).of_type("QuestionConnection!")) }
   end
 end

@@ -17,6 +17,6 @@ module Types
       dataloader.with(Sources::ActiveRecord, Category).load(object.category_id)
     end
 
-    field :questions, [QuestionType], null: false
+    field :questions, QuestionType.connection_type, null: false
   end
 end
