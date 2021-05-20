@@ -25,6 +25,7 @@ module Types
         .resolve
         .joins(:roles)
         .where(roles: { name: %i[teacher nde] })
+        .where.not(id: context[:current_user].id)
         .distinct
     end
 
