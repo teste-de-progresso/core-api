@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class ProgressTestSchema < GraphQL::Schema
+  DEFINITION_DUMP_PATH = "app/graphql/schema.graphql"
+
   mutation(Types::MutationType)
   query(Types::QueryType)
   use GraphQL::Dataloader
