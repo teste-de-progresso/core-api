@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
   post "/uploads", to: "uploads#create"
-  post "/update_avatar", to: "users#update_user_avatar"
+  post "/update_avatar", to: "users#update_avatar"
 
   devise_for :users,
     path: "",
