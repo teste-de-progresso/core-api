@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include Auth
+  include Authenticable
 
   def render_resource(resource)
     if resource.errors.empty?

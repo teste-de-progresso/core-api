@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_130918) do
+ActiveRecord::Schema.define(version: 2021_05_22_032222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_130918) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "introduction"
     t.text "explanation"
     t.string "difficulty"
     t.string "bloom_taxonomy"
@@ -126,7 +125,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_130918) do
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.string "filename"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

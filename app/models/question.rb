@@ -13,7 +13,6 @@
 #  difficulty      :string
 #  explanation     :text
 #  instruction     :text
-#  introduction    :string
 #  references      :text
 #  source          :string
 #  status          :string           default("draft"), not null
@@ -56,23 +55,7 @@ class Question < ApplicationRecord
     constant_alternatives
   ]
 
-  before_save :update_introduction
-
   def reviewer
     review_requests.last&.user
-  end
-
-  private
-
-  def update_introduction
-    return if body.nil?
-
-    without_html_tags = body.gsub(%r{</?[^>]+?>}, " ").gsub(/\s+/, " ")
-
-    self.introduction = if without_html_tags.size <= 20
-      without_html_tags
-    else
-      without_html_tags[0, 20]
-    end
   end
 end
