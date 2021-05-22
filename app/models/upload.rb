@@ -5,7 +5,6 @@
 # Table name: uploads
 #
 #  id         :bigint           not null, primary key
-#  filename   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

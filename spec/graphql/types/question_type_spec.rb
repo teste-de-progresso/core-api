@@ -7,7 +7,6 @@ describe Types::QuestionType do
 
   describe "fields" do
     it { is_expected.to(have_field(:id).of_type("ID!")) }
-    it { is_expected.to(have_field(:introduction).of_type("String")) }
     it { is_expected.to(have_field(:instruction).of_type("String")) }
     it { is_expected.to(have_field(:body).of_type("String")) }
     it { is_expected.to(have_field(:support).of_type("String")) }

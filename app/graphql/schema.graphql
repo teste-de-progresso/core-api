@@ -324,7 +324,6 @@ type Question implements Node {
   explanation: String
   id: ID!
   instruction: String
-  introduction: String
   references: String
   reviewFeedbacks: [ReviewFeedback!]!
   reviewRequests: [ReviewRequest!]!

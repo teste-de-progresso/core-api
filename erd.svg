@@ -236,16 +236,13 @@
 <!-- m_Upload -->
 <g id="node11" class="node">
 <title>m_Upload</title>
-<path fill="none" stroke="black" d="M203,-494C203,-494 323,-494 323,-494 329,-494 335,-500 335,-506 335,-506 335,-525 335,-525 335,-531 329,-537 323,-537 323,-537 203,-537 203,-537 197,-537 191,-531 191,-525 191,-525 191,-506 191,-506 191,-500 197,-494 203,-494"/>
-<text text-anchor="start" x="242" y="-524.2" font-family="Arial Bold" font-size="11.00">Upload</text>
-<polyline fill="none" stroke="black" points="191,-517 335,-517 "/>
-<text text-anchor="start" x="198" y="-503.5" font-family="Arial" font-size="10.00">filename </text>
-<text text-anchor="start" x="238" y="-503.5" font-family="Arial Italic" font-size="10.00" fill="#999999">string</text>
+<path fill="none" stroke="black" d="M203,-497.5C203,-497.5 323,-497.5 323,-497.5 329,-497.5 335,-503.5 335,-509.5 335,-509.5 335,-521.5 335,-521.5 335,-527.5 329,-533.5 323,-533.5 323,-533.5 203,-533.5 203,-533.5 197,-533.5 191,-527.5 191,-521.5 191,-521.5 191,-509.5 191,-509.5 191,-503.5 197,-497.5 203,-497.5"/>
+<text text-anchor="start" x="242" y="-512.7" font-family="Arial Bold" font-size="11.00">Upload</text>
 </g>
 <!-- m_Upload&#45;&gt;m_ActiveStorage::Attachment -->
 <g id="edge5" class="edge">
 <title>m_Upload&#45;&gt;m_ActiveStorage::Attachment</title>
-<path fill="none" stroke="black" d="M263,-493.63C263,-461.8 263,-400.52 263,-359.82"/>
+<path fill="none" stroke="black" d="M263,-497.2C263,-466.53 263,-401.9 263,-359.62"/>
 </g>
 <!-- m_User&#45;&gt;m_ActiveStorage::Attachment -->
 <g id="edge6" class="edge">
