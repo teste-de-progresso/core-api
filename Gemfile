@@ -36,8 +36,8 @@ group :development, :test do
   gem "faker"
   gem "rspec-rails", "~> 4.0.1"
 
-  gem "rubocop"
-  gem "rubocop-shopify"
+  gem "rubocop", "~> 1.12.1"
+  gem "rubocop-shopify", "2.0.1"
   gem "rubocop-rails"
   gem "rubocop-rspec"
 end
