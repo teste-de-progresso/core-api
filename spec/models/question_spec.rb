@@ -13,7 +13,6 @@
 #  difficulty      :string
 #  explanation     :text
 #  instruction     :text
-#  introduction    :string
 #  references      :text
 #  source          :string
 #  status          :string           default("draft"), not null

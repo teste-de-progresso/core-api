@@ -6,7 +6,6 @@ module Types
     graphql_name "Question"
 
     global_id_field :id
-    field :introduction, String, null: true
     field :instruction, String, null: true
     field :body, String, null: true
     field :support, String, null: true
