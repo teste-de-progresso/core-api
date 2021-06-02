@@ -3,8 +3,6 @@
 require "rails_helper"
 
 describe ProgressTestSchema do
-  subject { described_class }
-
   context "schema dump" do
     it "is updated" do
       File.open(described_class::DEFINITION_DUMP_PATH, "r") do |f|
