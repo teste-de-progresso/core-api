@@ -13,10 +13,10 @@ describe Types::QuestionType do
     it { is_expected.to(have_field(:alternatives).of_type("[QuestionAlternative!]!")) }
     it { is_expected.to(have_field(:explanation).of_type("String")) }
     it { is_expected.to(have_field(:references).of_type("String")) }
-    it { is_expected.to(have_field(:status).of_type("Status")) }
-    it { is_expected.to(have_field(:check_type).of_type("Check")) }
-    it { is_expected.to(have_field(:difficulty).of_type("Difficulty")) }
-    it { is_expected.to(have_field(:bloom_taxonomy).of_type("BloomTaxonomy")) }
+    it { is_expected.to(have_field(:status).of_type("QuestionStatus")) }
+    it { is_expected.to(have_field(:check_type).of_type("QuestionCheckType")) }
+    it { is_expected.to(have_field(:difficulty).of_type("QuestionDifficulty")) }
+    it { is_expected.to(have_field(:bloom_taxonomy).of_type("QuestionBloomTaxonomy")) }
     it { is_expected.to(have_field(:authorship_year).of_type("String")) }
     it { is_expected.to(have_field(:source).of_type("String")) }
     it { is_expected.to(have_field(:reviewer).of_type("User")) }

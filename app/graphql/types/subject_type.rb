@@ -19,10 +19,7 @@ module Types
       argument :where, Inputs::QuestionWhereInput, required: false
     end
     def questions(where: nil)
-      QuestionPolicy::Scope.new(context[:current_user], object.questions)
-        .resolve
-        .where(where.to_h)
-        .order(updated_at: :desc)
+      Resolvers::QuestionsQueryResolver.new(object.questions, where, context).resolve
     end
   end
 end

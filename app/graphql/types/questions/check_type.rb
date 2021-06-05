@@ -3,6 +3,8 @@
 module Types
   module Questions
     class CheckType < Types::BaseEnum
+      graphql_name "QuestionCheckType"
+
       value "unique_answer"
       value "incomplete_affirmation"
       value "multiple_answer"

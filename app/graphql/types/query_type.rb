@@ -7,30 +7,21 @@ module Types
     field :questions, QuestionType.connection_type, null: false do
       argument :where, Inputs::QuestionWhereInput, required: false
     end
-
     def questions(where: nil)
-      QuestionPolicy::Scope.new(context[:current_user], Question).resolve.where(where.to_h).order(updated_at: :desc)
+      Resolvers::QuestionsQueryResolver.new(Question, where, context).resolve
     end
 
     field :subjects, SubjectType.connection_type, null: false
-
     def subjects
-      SubjectPolicy::Scope.new(context[:current_user], Subject).resolve
+      Resolvers::SubjectsQueryResolver.new(Subject, context).resolve
     end
 
     field :reviewers, Types::Core::UserType.connection_type, null: false
-
     def reviewers
-      UserPolicy::Scope.new(context[:current_user], User)
-        .resolve
-        .joins(:roles)
-        .where(roles: { name: %i[teacher nde] })
-        .where.not(id: context[:current_user].id)
-        .distinct
+      Resolvers::ReviewersQueryResolver.new(User, context).resolve
     end
 
     field :current_user, Types::Core::UserType, null: true
-
     def current_user
       context[:current_user]
     end
