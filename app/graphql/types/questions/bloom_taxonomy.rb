@@ -3,6 +3,8 @@
 module Types
   module Questions
     class BloomTaxonomy < Types::BaseEnum
+      graphql_name "QuestionBloomTaxonomy"
+
       value "remember"
       value "understand"
       value "apply"

@@ -10,5 +10,6 @@ module Inputs
     argument :source, String, required: false
     argument :subject_id, ID, required: false
     argument :user_id, ID, required: false
+    argument :create_date, DateRangeInput, required: false
   end
 end
