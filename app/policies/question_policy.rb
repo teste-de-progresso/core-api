@@ -8,18 +8,18 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def create?
-    is?(:admin) || is?(:teacher)
+    user.roles.present?
   end
 
   def update?
-    is?(:admin) || is?(:nde) || (is?(:teacher) && @record.user_id == @user.id)
+    is?(:admin) || is?(:nde) || (is?(:teacher) && record.user_id == user.id)
   end
 
   def destroy?
-    @record.user_id == @user.id && @record.status != "finished"
+    record.user_id == user.id && record.status != "finished"
   end
 
   def finish?
-    (is?(:admin) || @record.user_id == @user.id) && @record.status.to_sym == :approved
+    (is?(:admin) || record.user_id == user.id) && record.status.to_sym == :approved
   end
 end

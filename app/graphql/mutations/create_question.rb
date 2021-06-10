@@ -25,7 +25,6 @@ module Mutations
       rescue ActiveRecord::RecordInvalid
         { question: nil, errors: record.errors.full_messages }
       end
-
     rescue Pundit::NotAuthorizedError => e
       { question: nil, errors: [e.message] }
     end
