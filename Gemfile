@@ -22,6 +22,7 @@ gem "pundit"
 gem "enumerize"
 gem "graphql"
 gem "kaminari"
+gem "noticed"
 
 group :development, :test do
   gem "annotate"
