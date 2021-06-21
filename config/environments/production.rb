@@ -5,19 +5,19 @@ Rails.application.configure do
   config.eager_load = true
   config.consider_all_requests_local = false
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
   config.log_level = :debug
   config.log_tags = [:request_id]
-  config.action_mailer.default_url_options = { host: ENV["URL_HOST"] }
+  config.action_mailer.default_url_options = { host: ENV["MAILER_HOST_URL_REFERENCE"] }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    authentication: :plain,
-    address: ENV["MAILGUN_SMTP_SERVER"],
-    port: ENV["MAILGUN_SMTP_PORT"],
-    domain: ENV["MAILGUN_DOMAIN"],
-    user_name: ENV["MAILGUN_SMTP_LOGIN"],
-    password: ENV["MAILGUN_SMTP_PASSWORD"],
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    authentication: "plain",
+    enable_starttls_auto: true,
   }
 
   config.i18n.fallbacks = true

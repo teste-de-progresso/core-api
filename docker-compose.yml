@@ -1,15 +1,19 @@
 version: "3.6"
 
 x-rails: &rails
-  image: progress-test
+  image: progress-test-backend
   volumes:
     - .:/app:delegated
-    - gems:/home/progress-test:delegated
+    - gems:/home/progress-test-backend:delegated
   environment:
+    - RAILS_ENV=production
     - DISABLE_SPRING=1
     - DATABASE_URL=postgres://postgres:postgres@db:5432
-  depends_on:
-    - db
+    - SECRET_KEY_BASE=
+    - DEVISE_MAILER_SENDER=
+    - MAILER_HOST_URL_REFERENCE=
+    - GMAIL_USERNAME=
+    - GMAIL_PASSWORD=
 
 services:
   web:
@@ -17,7 +21,7 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: .
-    container_name: progress-test
+    container_name: progress-test-backend
     command: >
       sh -c '
         bundle check || bundle install &&
@@ -26,16 +30,5 @@ services:
     ports:
       - "3000:3000"
 
-  db:
-    image: postgres:11.3-alpine
-    container_name: progress-test-db
-    volumes:
-      - pg-data:/var/lib/postgresql/data:delegated
-      - ./scripts:/scripts:delegated
-      - ./tmp:/tmp:delegated
-    ports:
-      - "5435:5432"
-
 volumes:
   gems:
-  pg-data:

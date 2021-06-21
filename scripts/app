@@ -1,0 +1,44 @@
+#!/bin/bash
+
+blue_text(){
+  echo "`tput setaf 4`$@`tput sgr0`"
+}
+
+red_text(){
+  echo "`tput setaf 1`$@`tput sgr0`"
+}
+
+yellow=$(tput setaf 3)
+
+white=$(tput sgr0)
+
+magenta=$(tput setaf 5)
+
+run(){
+  docker-compose run --rm $args web $@
+}
+
+case $1 in
+  setup)
+    ./scripts/setup
+    ;;
+  sh)
+    run sh
+    ;;
+  console)
+    run rails c
+    ;;
+  rspec)
+    run bundle exec rspec ${@:2}
+    ;;
+  bundle)
+    docker-compose run --rm --user root web bundle ${@:2}
+    ;;
+  run)
+    run ${@:2}
+    ;;
+  debug)
+    docker-compose stop
+    docker-compose run --service-ports --rm web
+    ;;
+esac

@@ -13,7 +13,6 @@ gem "rails", "~> 6.0.3"
 gem "tty-spinner"
 
 gem "active_storage_base64"
-gem "aws-sdk-s3", require: false
 
 gem "devise"
 gem "devise-jwt"
