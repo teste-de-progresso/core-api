@@ -1,5 +1,4 @@
 ## Production envirioment variables
-- DEVISE_MAILER_SENDER=
 - MAILER_HOST_URL_REFERENCE=
 - GMAIL_USERNAME=
 - GMAIL_PASSWORD=

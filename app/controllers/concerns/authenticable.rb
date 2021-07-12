@@ -17,8 +17,6 @@ module Authenticable
     end
 
     def jwt_user_id
-      secret = Rails.env.production? ? ENV["DEVISE_JWT_SECRET_KEY"] : "1cb26f40-498b-4f72-a00a-e8633abc5957"
-      JWT.decode(auth_token, secret, true, algorithm: "HS256", verify_jti: true).first["sub"]
     end
   end
 end
