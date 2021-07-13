@@ -13,15 +13,12 @@ gem "rails", "~> 6.0.3"
 gem "tty-spinner"
 
 gem "active_storage_base64"
-
-gem "devise"
-gem "devise-jwt"
 gem "pundit"
-
 gem "enumerize"
 gem "graphql"
 gem "kaminari"
 gem "noticed"
+gem "httparty"
 
 group :development, :test do
   gem "annotate"

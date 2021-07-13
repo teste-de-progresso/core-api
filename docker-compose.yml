@@ -10,7 +10,6 @@ x-rails: &rails
     - DISABLE_SPRING=1
     - DATABASE_URL=postgres://postgres:postgres@db:5432
     - SECRET_KEY_BASE=
-    - DEVISE_MAILER_SENDER=
     - MAILER_HOST_URL_REFERENCE=
     - GMAIL_USERNAME=
     - GMAIL_PASSWORD=
