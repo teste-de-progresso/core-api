@@ -18,6 +18,7 @@ gem "enumerize"
 gem "graphql"
 gem "kaminari"
 gem "noticed"
+gem "httparty"
 
 group :development, :test do
   gem "annotate"

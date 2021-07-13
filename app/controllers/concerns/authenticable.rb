@@ -7,16 +7,17 @@ module Authenticable
     def current_user
       return User.new if auth_token.nil? && Rails.env.development?
 
-      User.find(jwt_user_id)
+      @current_user ||= User.find_by(email: user_email)
     end
 
     private
 
-    def auth_token
-      request.headers["Authorization"]&.gsub(/^Bearer /, "")
+    def user_email
+      Firebase::OauthIntrospect.new(auth_token).email
     end
 
-    def jwt_user_id
+    def auth_token
+      request.headers["Authorization"]&.gsub(/^Bearer /, "")
     end
   end
 end
