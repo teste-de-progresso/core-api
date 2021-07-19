@@ -19,22 +19,9 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :review_requests, dependent: :destroy
-  has_and_belongs_to_many :roles
+  has_and_belongs_to_many :roles, -> { distinct }
   has_one_base64_attached :avatar
 
   validates :name, presence: true
-
-  def active_review_requests
-    review_requests.active
-  end
-
-  def inactive_review_requests
-    review_requests.inactive
-  end
-
-  def avatar_url
-    Rails.application.routes.url_helpers.rails_blob_url(avatar, only_path: true)
-  rescue NoMethodError
-    nil
-  end
+  validates :email, presence: true, uniqueness: true
 end
