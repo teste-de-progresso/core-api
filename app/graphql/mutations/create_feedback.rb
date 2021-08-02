@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Mutations
   class CreateFeedback < BaseMutation
     field :feedback, Types::Review::Feedback, null: true
@@ -9,7 +8,7 @@ module Mutations
     def resolve(feedback:)
       @inputs = feedback.to_h
 
-      request = ::Question.select(:id)
+      request = Question.select(:id)
         .find(@inputs[:question_id])
         .review_requests
         .where(user_id: context[:current_user].id)
