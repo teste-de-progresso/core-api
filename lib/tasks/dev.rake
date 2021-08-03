@@ -35,7 +35,7 @@ namespace :dev do
     spinner.auto_spin
 
     roles.each do |role|
-      user = User.create(name: Faker::Name.first_name, email: "#{role}@example.com", password: "password")
+      user = User.create(name: Faker::Name.first_name, email: "#{role}@example.com")
       role = Role.create(name: role)
 
       user.roles << role
