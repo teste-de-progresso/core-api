@@ -13,6 +13,7 @@ module Inputs
     argument :targeted_knowledge, String, required: true
 
     argument :status, Types::Questions::Status, required: true
+    argument :intention, Types::Questions::Intention, required: false
     argument :check_type, Types::Questions::CheckType, required: false
     argument :difficulty, Types::Questions::Difficulty, required: false
     argument :bloom_taxonomy, Types::Questions::BloomTaxonomy, required: false
