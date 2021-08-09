@@ -10,6 +10,7 @@ module Inputs
     argument :references, String, required: true
     argument :authorship_year, String, required: true
     argument :source, String, required: true
+    argument :intention, String, required: false
     argument :targeted_knowledge, String, required: true
 
     argument :status, Types::Questions::Status, required: true
