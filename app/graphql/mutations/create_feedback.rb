@@ -34,7 +34,7 @@ module Mutations
     private
 
     def update_request
-      @feedback.review_request.update(answered: true)
+      @feedback.review_request.update(answered: (@inputs[:status].to_sym == :approve))
     end
 
     def update_question_status
