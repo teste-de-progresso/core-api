@@ -306,6 +306,7 @@ type Question implements Node {
   explanation: String
   id: ID!
   instruction: String
+  intention: String
   references: String
   reviewFeedbacks: [ReviewFeedback!]!
   reviewRequests: [ReviewRequest!]!
@@ -314,6 +315,7 @@ type Question implements Node {
   status: QuestionStatus
   subject: Subject
   support: String
+  targetedKnowledge: String
   updatedAt: ISO8601DateTime!
   user: User!
 }
@@ -357,12 +359,7 @@ type QuestionConnection {
   """
   A list of edges.
   """
-  edges: [QuestionEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [Question]
+  edges: [QuestionEdge!]!
 
   """
   Information to aid in pagination.
@@ -380,12 +377,14 @@ input QuestionCreateInput {
   difficulty: QuestionDifficulty
   explanation: String!
   instruction: String!
+  intention: String
   references: String!
   reviewerUserId: ID
   source: String!
   status: QuestionStatus!
   subjectId: ID
   support: String!
+  targetedKnowledge: String!
 }
 
 enum QuestionDifficulty {
@@ -406,7 +405,7 @@ type QuestionEdge {
   """
   The item at the end of the edge.
   """
-  node: Question
+  node: Question!
 }
 
 enum QuestionStatus {
@@ -426,12 +425,14 @@ input QuestionUpdateInput {
   explanation: String!
   id: ID!
   instruction: String!
+  intention: String
   references: String!
   reviewerUserId: ID
   source: String!
   status: QuestionStatus!
   subjectId: ID
   support: String!
+  targetedKnowledge: String!
 }
 
 input QuestionWhereInput {
@@ -470,12 +471,7 @@ type ReviewRequestConnection {
   """
   A list of edges.
   """
-  edges: [ReviewRequestEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [ReviewRequest]
+  edges: [ReviewRequestEdge!]!
 
   """
   Information to aid in pagination.
@@ -496,7 +492,7 @@ type ReviewRequestEdge {
   """
   The item at the end of the edge.
   """
-  node: ReviewRequest
+  node: ReviewRequest!
 }
 
 input SendFeedback {
@@ -541,12 +537,7 @@ type SubjectConnection {
   """
   A list of edges.
   """
-  edges: [SubjectEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [Subject]
+  edges: [SubjectEdge!]!
 
   """
   Information to aid in pagination.
@@ -567,7 +558,7 @@ type SubjectEdge {
   """
   The item at the end of the edge.
   """
-  node: Subject
+  node: Subject!
 }
 
 """
@@ -654,12 +645,7 @@ type UserConnection {
   """
   A list of edges.
   """
-  edges: [UserEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [User]
+  edges: [UserEdge!]!
 
   """
   Information to aid in pagination.
@@ -680,7 +666,7 @@ type UserEdge {
   """
   The item at the end of the edge.
   """
-  node: User
+  node: User!
 }
 
 enum UserRoles {
