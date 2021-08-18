@@ -18,7 +18,6 @@ module Types
     field :authorship_year, String, null: true
     field :source, String, null: true
     field :intention, String, null: true
-    field :targeted_knowledge, String, null: true
 
     field :alternatives, [Types::Questions::Alternative], null: false
     field :reviewer, Types::Core::UserType, null: true

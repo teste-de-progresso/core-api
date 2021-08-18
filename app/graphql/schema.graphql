@@ -306,6 +306,7 @@ type Question implements Node {
   explanation: String
   id: ID!
   instruction: String
+  intention: String
   references: String
   reviewFeedbacks: [ReviewFeedback!]!
   reviewRequests: [ReviewRequest!]!
@@ -380,6 +381,7 @@ input QuestionCreateInput {
   difficulty: QuestionDifficulty
   explanation: String!
   instruction: String!
+  intention: String
   references: String!
   reviewerUserId: ID
   source: String!
@@ -426,6 +428,7 @@ input QuestionUpdateInput {
   explanation: String!
   id: ID!
   instruction: String!
+  intention: String
   references: String!
   reviewerUserId: ID
   source: String!
