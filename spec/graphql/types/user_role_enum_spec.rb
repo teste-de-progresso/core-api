@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::Core::UserRoles do
+describe Types::UserRoleEnum do
   subject { described_class }
 
   describe "values" do

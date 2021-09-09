@@ -12,7 +12,7 @@ module Types
       dataloader.with(Sources::ActiveRecord, Question).load(object.question_id)
     end
 
-    field :user, Types::Core::UserType, null: false
+    field :user, Types::UserType, null: false
     def user
       dataloader.with(Sources::ActiveRecord, User).load(object.user_id)
     end
