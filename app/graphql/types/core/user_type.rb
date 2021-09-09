@@ -9,12 +9,12 @@ module Types
       field :name, String, null: false
       field :email, String, null: false
 
-      field :inactive_review_requests, Types::Review::Request.connection_type, null: false
+      field :inactive_review_requests, Types::ReviewRequest.connection_type, null: false
       def inactive_review_requests
         object.review_requests.inactive
       end
 
-      field :active_review_requests, Types::Review::Request.connection_type, null: false
+      field :active_review_requests, Types::ReviewRequest.connection_type, null: false
       def active_review_requests
         object.review_requests.active
       end

@@ -21,8 +21,7 @@ module Types
 
     field :alternatives, [Types::Questions::Alternative], null: false
     field :reviewer, Types::Core::UserType, null: true
-    field :review_requests, [Types::Review::Request], null: false
-    field :review_feedbacks, [Types::Review::Feedback], null: false
+    field :review_requests, [Types::ReviewRequest], null: false
 
     field :subject, Types::SubjectType, null: true
 
