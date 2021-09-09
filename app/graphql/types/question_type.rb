@@ -22,6 +22,7 @@ module Types
     field :alternatives, [Types::Questions::Alternative], null: false
     field :reviewer, Types::UserType, null: true
     field :review_requests, [Types::ReviewRequest], null: false
+    field :review_messages, Types::ReviewMessageType.connection_type, null: false
 
     field :subject, Types::SubjectType, null: true
 

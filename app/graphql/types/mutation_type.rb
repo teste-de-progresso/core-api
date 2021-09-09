@@ -6,6 +6,6 @@ module Types
     field :update_question, mutation: Mutations::UpdateQuestion
     field :destroy_question, mutation: Mutations::DestroyQuestion
     field :finish_question, mutation: Mutations::FinishQuestion
-    # field :create_feedback, mutation: Mutations::CreateFeedback
+    field :create_review_message, mutation: Mutations::CreateReviewMessage
   end
 end
