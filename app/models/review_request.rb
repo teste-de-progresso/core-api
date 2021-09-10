@@ -24,7 +24,6 @@
 class ReviewRequest < ApplicationRecord
   belongs_to :question
   belongs_to :user
-  has_many :review_feedbacks, dependent: :destroy
 
   scope :active, -> { where(answered: false) }
   scope :inactive, -> { where(answered: true) }

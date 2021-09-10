@@ -20,9 +20,9 @@ module Types
     field :intention, String, null: true
 
     field :alternatives, [Types::Questions::Alternative], null: false
-    field :reviewer, Types::Core::UserType, null: true
-    field :review_requests, [Types::Review::Request], null: false
-    field :review_feedbacks, [Types::Review::Feedback], null: false
+    field :reviewer, Types::UserType, null: true
+    field :review_requests, [Types::ReviewRequest], null: false
+    field :review_messages, Types::ReviewMessageType.connection_type, null: false
 
     field :subject, Types::SubjectType, null: true
 
@@ -30,7 +30,7 @@ module Types
       dataloader.with(Sources::ActiveRecord, Subject).load(object.subject_id)
     end
 
-    field :user, Core::UserType, null: false
+    field :user, UserType, null: false
 
     def user
       dataloader.with(Sources::ActiveRecord, User).load(object.user_id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_221604) do
+ActiveRecord::Schema.define(version: 2021_09_09_223530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,13 +73,15 @@ ActiveRecord::Schema.define(version: 2021_09_09_221604) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
-  create_table "review_feedbacks", force: :cascade do |t|
-    t.bigint "review_request_id", null: false
-    t.string "status"
-    t.text "comment"
+  create_table "review_messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.string "text", null: false
+    t.string "feedback_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_request_id"], name: "index_review_feedbacks_on_review_request_id"
+    t.index ["question_id"], name: "index_review_messages_on_question_id"
+    t.index ["user_id"], name: "index_review_messages_on_user_id"
   end
 
   create_table "review_requests", force: :cascade do |t|
@@ -132,7 +134,8 @@ ActiveRecord::Schema.define(version: 2021_09_09_221604) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "questions", "subjects"
-  add_foreign_key "review_feedbacks", "review_requests"
+  add_foreign_key "review_messages", "questions"
+  add_foreign_key "review_messages", "users"
   add_foreign_key "review_requests", "questions"
   add_foreign_key "review_requests", "users"
   add_foreign_key "subjects", "axes"
