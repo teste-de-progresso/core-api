@@ -21,7 +21,7 @@ module Mutations
           request.update!(answered: question.user_id != current_user.id)
         end
 
-        question.status = :approved if message[:feedback_type] == "approve"
+        question.update!(status: :approved) if message[:feedback_type] == "approve"
 
         { review_message: record, errors: [] }
       rescue ActiveRecord::RecordInvalid => e
