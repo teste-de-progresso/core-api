@@ -7,22 +7,20 @@ module Mutations
     argument :question_id, ID, required: true
 
     def resolve(question_id:)
-      question = ::Question.find_by(id: question_id)
+      question = Question.find_by(id: question_id)
       reviewer = question.reviewer
 
       raise Pundit::NotAuthorizedError unless QuestionPolicy.new(context[:current_user], question).destroy?
 
-      if question.destroy
-        { deleted_question_id: question_id, errors: [] }
-      else
-        { deleted_question_id: nil, errors: question.errors.full_messages }
-      end
+      return { errors: question.errors.full_messages } unless question.destroy!
 
-      # Noticed requires sidekiq, migrate this later on
-      ReviewerMailer.with(question_id: question.id, recipient: reviewer)
-        .question_deleted_notification.deliver
+      ReviewerMailer.with(question_id: question_id, recipient: reviewer)
+        .question_deleted_notification
+        .deliver if reviewer
+
+      { deleted_question_id: question_id, errors: [] }
     rescue Pundit::NotAuthorizedError => e
-      { deleted_question_id: nil, errors: [e.message] }
+      { errors: [e.message] }
     end
   end
 end
