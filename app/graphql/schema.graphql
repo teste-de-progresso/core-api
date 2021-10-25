@@ -291,6 +291,7 @@ type Query {
 
 type Question implements Node {
   alternatives: [QuestionAlternative!]!
+  authorship: String
   authorshipYear: String
   bloomTaxonomy: QuestionBloomTaxonomy
   body: String
@@ -325,7 +326,6 @@ type Question implements Node {
   ): ReviewMessageConnection!
   reviewRequests: [ReviewRequest!]!
   reviewer: User
-  source: String
   status: QuestionStatus
   subject: Subject
   support: String
@@ -388,6 +388,7 @@ type QuestionConnection {
 
 input QuestionCreateInput {
   alternatives: [QuestionAlternativeInput!]!
+  authorship: String!
   authorshipYear: String!
   bloomTaxonomy: QuestionBloomTaxonomy
   body: String!
@@ -398,7 +399,6 @@ input QuestionCreateInput {
   intention: String
   references: String!
   reviewerUserId: ID
-  source: String!
   status: QuestionStatus!
   subjectId: ID
   support: String!
@@ -434,6 +434,7 @@ enum QuestionStatus {
 
 input QuestionUpdateInput {
   alternatives: [QuestionAlternativeInput!]!
+  authorship: String!
   authorshipYear: String!
   bloomTaxonomy: QuestionBloomTaxonomy
   body: String!
@@ -445,7 +446,6 @@ input QuestionUpdateInput {
   intention: String
   references: String!
   reviewerUserId: ID
-  source: String!
   status: QuestionStatus!
   subjectId: ID
   support: String!
@@ -457,9 +457,9 @@ input QuestionWhereInput {
   checkType: [QuestionCheckType!]
   createDate: DateRangeInput
   difficulty: [QuestionDifficulty!]
-  source: String
   status: [QuestionStatus!]
   subjectId: ID
+  unifesoAuthorship: Boolean
   userId: ID
 }
 

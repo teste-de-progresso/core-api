@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_223530) do
+ActiveRecord::Schema.define(version: 2021_10_25_231743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_223530) do
     t.string "difficulty"
     t.string "bloom_taxonomy"
     t.string "authorship_year"
-    t.string "source"
+    t.string "authorship"
     t.text "references"
     t.string "check_type"
     t.bigint "subject_id"

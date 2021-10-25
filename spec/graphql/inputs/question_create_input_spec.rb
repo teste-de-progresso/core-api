@@ -12,7 +12,7 @@ describe Inputs::QuestionCreateInput do
     it { is_expected.to(accept_argument(:explanation).of_type("String!")) }
     it { is_expected.to(accept_argument(:references).of_type("String!")) }
     it { is_expected.to(accept_argument(:authorship_year).of_type("String!")) }
-    it { is_expected.to(accept_argument(:source).of_type("String!")) }
+    it { is_expected.to(accept_argument(:authorship).of_type("String!")) }
     it { is_expected.to(accept_argument(:alternatives).of_type("[QuestionAlternativeInput!]!")) }
     it { is_expected.to(accept_argument(:status).of_type("QuestionStatus!")) }
     it { is_expected.to(accept_argument(:check_type).of_type("QuestionCheckType")) }
