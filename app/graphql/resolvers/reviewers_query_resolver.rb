@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 module Resolvers
   class ReviewersQueryResolver
-    def initialize(scope, context)
-      @scope = scope
+    def initialize(context)
       @context = context
     end
 
     def resolve
-      UserPolicy::Scope.new(@context[:current_user], @scope)
+      UserPolicy::Scope.new(@context[:current_user], User)
         .resolve
         .joins(:roles)
         .where(roles: { name: %i[teacher nde] })

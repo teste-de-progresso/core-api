@@ -1,17 +1,31 @@
 # frozen_string_literal: true
 module Resolvers
   class QuestionsQueryResolver
-    def initialize(scope, where, context)
-      @where = where.to_h
-      @scope = scope
+    def initialize(context, where)
       @context = context
+      @where = where.to_h
     end
 
     def resolve
-      create_date_range = @where.delete(:create_date)
-      @where[:created_at] = create_date_range[:start_at]..create_date_range[:end_at] if create_date_range
+      set_created_at_filter
 
-      QuestionPolicy::Scope.new(@context[:current_user], @scope).resolve.where(@where).order(updated_at: :desc)
+      unifeso_authorship = @where.delete(:unifeso_authorship)
+
+      scope = QuestionPolicy::Scope.new(@context[:current_user], Question).resolve
+        .where(@where)
+        .order(updated_at: :desc)
+
+      return scope if unifeso_authorship.nil?
+
+      unifeso_authorship ? scope.where(source: "UNIFESO") : scope.where.not(source: "UNIFESO")
+    end
+
+    private
+
+    def set_created_at_filter
+      create_date_range = @where.delete(:create_date)
+
+      @where[:created_at] = create_date_range[:start_at]..create_date_range[:end_at] if create_date_range
     end
   end
 end

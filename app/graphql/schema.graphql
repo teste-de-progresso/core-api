@@ -460,6 +460,7 @@ input QuestionWhereInput {
   source: String
   status: [QuestionStatus!]
   subjectId: ID
+  unifesoAuthorship: Boolean
   userId: ID
 }
 

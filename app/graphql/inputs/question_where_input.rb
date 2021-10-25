@@ -11,5 +11,6 @@ module Inputs
     argument :subject_id, ID, required: false
     argument :user_id, ID, required: false
     argument :create_date, DateRangeInput, required: false
+    argument :unifeso_authorship, Boolean, required: false
   end
 end

@@ -8,17 +8,17 @@ module Types
       argument :where, Inputs::QuestionWhereInput, required: false
     end
     def questions(where: nil)
-      Resolvers::QuestionsQueryResolver.new(Question, where, context).resolve
+      Resolvers::QuestionsQueryResolver.new(context, where).resolve
     end
 
     field :subjects, SubjectType.connection_type, null: false
     def subjects
-      Resolvers::SubjectsQueryResolver.new(Subject, context).resolve
+      Resolvers::SubjectsQueryResolver.new(context).resolve
     end
 
     field :reviewers, UserType.connection_type, null: false
     def reviewers
-      Resolvers::ReviewersQueryResolver.new(User, context).resolve
+      Resolvers::ReviewersQueryResolver.new(context).resolve
     end
 
     field :current_user, UserType, null: true
