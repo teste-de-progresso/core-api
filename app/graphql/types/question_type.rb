@@ -16,27 +16,23 @@ module Types
     field :difficulty, Types::Questions::Difficulty, null: true
     field :bloom_taxonomy, Types::Questions::BloomTaxonomy, null: true
     field :authorship_year, String, null: true
-    field :source, String, null: true
+    field :authorship, String, null: true
     field :intention, String, null: true
-
     field :alternatives, [Types::Questions::Alternative], null: false
     field :reviewer, Types::UserType, null: true
     field :review_requests, [Types::ReviewRequest], null: false
     field :review_messages, Types::ReviewMessageType.connection_type, null: false
-
     field :subject, Types::SubjectType, null: true
+    field :user, UserType, null: false
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     def subject
       dataloader.with(Sources::ActiveRecord, Subject).load(object.subject_id)
     end
 
-    field :user, UserType, null: false
-
     def user
       dataloader.with(Sources::ActiveRecord, User).load(object.user_id)
     end
-
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
 end

@@ -18,7 +18,7 @@ describe Types::QuestionType do
     it { is_expected.to(have_field(:difficulty).of_type("QuestionDifficulty")) }
     it { is_expected.to(have_field(:bloom_taxonomy).of_type("QuestionBloomTaxonomy")) }
     it { is_expected.to(have_field(:authorship_year).of_type("String")) }
-    it { is_expected.to(have_field(:source).of_type("String")) }
+    it { is_expected.to(have_field(:authorship).of_type("String")) }
     it { is_expected.to(have_field(:reviewer).of_type("User")) }
     it { is_expected.to(have_field(:review_requests).of_type("[ReviewRequest!]!")) }
     it { is_expected.to(have_field(:subject).of_type("Subject")) }

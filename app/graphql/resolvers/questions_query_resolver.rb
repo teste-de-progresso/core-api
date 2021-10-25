@@ -17,7 +17,7 @@ module Resolvers
 
       return scope if unifeso_authorship.nil?
 
-      unifeso_authorship ? scope.where(source: "UNIFESO") : scope.where.not(source: "UNIFESO")
+      unifeso_authorship ? scope.where(authorship: "UNIFESO") : scope.where.not(authorship: "UNIFESO")
     end
 
     private

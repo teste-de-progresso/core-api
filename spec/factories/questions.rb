@@ -6,6 +6,7 @@
 #
 #  id              :bigint           not null, primary key
 #  alternatives    :jsonb            not null
+#  authorship      :string
 #  authorship_year :string
 #  bloom_taxonomy  :string
 #  body            :text
@@ -15,7 +16,6 @@
 #  instruction     :text
 #  intention       :text
 #  references      :text
-#  source          :string
 #  status          :string           default("draft"), not null
 #  support         :text
 #  created_at      :datetime         not null
@@ -52,7 +52,7 @@ FactoryBot.define do
     check_type { "unique_answer" }
     bloom_taxonomy { "understand" }
     authorship_year { "2020" }
-    source { "UNIFESO" }
+    authorship { "UNIFESO" }
     user
     subject
   end
