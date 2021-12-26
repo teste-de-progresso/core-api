@@ -40,9 +40,12 @@ class Question < ApplicationRecord
   has_many :review_requests, dependent: :destroy
   has_many :review_messages, dependent: :destroy
 
-  enumerize :status, in: %i[draft waiting_review approved registered]
+  enumerize :status, in: %i[draft waiting_review with_requested_changes approved registered]
+
   enumerize :difficulty, in: %i[easy medium hard]
+
   enumerize :bloom_taxonomy, in: %i[remember understand apply analyze evaluate create]
+
   enumerize :check_type, in: %i[
     unique_answer
     incomplete_affirmation

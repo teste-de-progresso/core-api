@@ -6,6 +6,10 @@ describe Types::Questions::Status do
   subject { described_class }
 
   describe "values" do
-    it { expect(described_class.values.keys).to(match(%w[draft waiting_review approved registered])) }
+    it do
+      expect(described_class.values.keys).to(
+        match(%w[DRAFT WAITING_REVIEW WITH_REQUESTED_CHANGES APPROVED REGISTERED])
+      )
+    end
   end
 end

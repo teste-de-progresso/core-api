@@ -5,10 +5,9 @@ module Types
     class Status < Types::BaseEnum
       graphql_name "QuestionStatus"
 
-      value "DRAFT", value: "draft"
-      value "WAITING_REVIEW", value: "waiting_review"
-      value "APPROVED", value: "approved"
-      value "REGISTERED", value: "registered"
+      Question.status.values.each do |status|
+        value status.upcase, value: status
+      end
     end
   end
 end

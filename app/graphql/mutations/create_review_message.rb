@@ -16,12 +16,11 @@ module Mutations
         })
 
         question = record.question
+        question.update!(status: message[:feedback_type])
 
         question.review_requests.where(user_id: current_user.id).each do |request|
           request.update!(answered: question.user_id != current_user.id)
         end
-
-        question.update!(status: :approved) if message[:feedback_type] == "approve"
 
         { review_message: record, errors: [] }
       rescue ActiveRecord::RecordInvalid => e
