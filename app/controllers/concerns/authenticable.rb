@@ -13,7 +13,7 @@ module Authenticable
     private
 
     def user_email
-      Firebase::OauthIntrospect.new(auth_token).email
+      Firebase::OauthIntrospect.new(auth_token).user_email
     end
 
     def auth_token

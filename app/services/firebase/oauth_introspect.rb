@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 module Firebase
   class OauthIntrospect
-    attr_reader :token
+    attr_reader :token, :cache
 
     def initialize(token)
       @token = token
+      @cache = OauthIntrospectCache.new(token)
     end
 
-    def email
-      request.dig("users")&.first&.dig("email")
+    def user_email
+      return @cache.retrieve if @cache.exist?
+
+      email = request&.dig("users")&.first&.dig("email")
+
+      @cache.save(email) && email
     end
 
     private
@@ -22,9 +27,11 @@ module Firebase
     end
 
     def identity_api_endpoint
-      api_key = ENV["FIREBASE_API_KEY"]
-
       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=#{api_key}"
+    end
+
+    def api_key
+      ENV["FIREBASE_API_KEY"]
     end
   end
 end

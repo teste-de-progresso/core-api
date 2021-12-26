@@ -426,24 +426,9 @@ type QuestionEdge {
 }
 
 enum QuestionStatus {
-  """
-  approved
-  """
   APPROVED
-
-  """
-  draft
-  """
   DRAFT
-
-  """
-  pending
-  """
   PENDING
-
-  """
-  registered
-  """
   REGISTERED
 }
 
