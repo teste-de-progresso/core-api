@@ -5,10 +5,10 @@ module Types
     class Status < Types::BaseEnum
       graphql_name "QuestionStatus"
 
-      value "draft"
-      value "pending"
-      value "approved"
-      value "finished"
+      value "DRAFT", "draft"
+      value "PENDING", "pending"
+      value "APPROVED", "approved"
+      value "REGISTERED", "registered"
     end
   end
 end

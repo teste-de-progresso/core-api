@@ -13,7 +13,7 @@ module Mutations
 
       raise Pundit::NotAuthorizedError unless QuestionPolicy.new(user, question).finish?
 
-      if question.update(status: :finished)
+      if question.update(status: :registered)
         { question: question, errors: [] }
       else
         { question: nil, errors: question.errors.full_messages }

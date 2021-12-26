@@ -10,6 +10,8 @@ class ProgressTestSchema < GraphQL::Schema
     case obj
     when Question
       Types::QuestionType
+    when Subject
+      Types::SubjectType
     else
       raise("Unexpected object: #{obj}")
     end

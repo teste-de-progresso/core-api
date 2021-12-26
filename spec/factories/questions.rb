@@ -47,7 +47,7 @@ FactoryBot.define do
     end
     explanation { "html raw" }
     references { "html raw" }
-    status { "finished" }
+    status { "registered" }
     difficulty { "easy" }
     check_type { "unique_answer" }
     bloom_taxonomy { "understand" }

@@ -19,7 +19,7 @@ module Types
       argument :where, Inputs::QuestionWhereInput, required: false
     end
     def questions(where: nil)
-      Resolvers::QuestionsQueryResolver.new(object.questions, where, context).resolve
+      Resolvers::QuestionsQueryResolver.new(object.questions, context: context, where: where).resolve
     end
   end
 end

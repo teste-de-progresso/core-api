@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 module Resolvers
   class QuestionsQueryResolver
-    def initialize(context, where)
+    def initialize(initial_scope, context:, where:)
+      @initial_scope = initial_scope
       @context = context
       @where = where.to_h
     end
@@ -11,7 +12,7 @@ module Resolvers
 
       unifeso_authorship = @where.delete(:unifeso_authorship)
 
-      scope = QuestionPolicy::Scope.new(@context[:current_user], Question).resolve
+      scope = QuestionPolicy::Scope.new(@context[:current_user], @initial_scope).resolve
         .where(@where)
         .order(updated_at: :desc)
 

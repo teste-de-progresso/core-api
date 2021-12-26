@@ -426,10 +426,25 @@ type QuestionEdge {
 }
 
 enum QuestionStatus {
+  """
   approved
+  """
+  APPROVED
+
+  """
   draft
-  finished
+  """
+  DRAFT
+
+  """
   pending
+  """
+  PENDING
+
+  """
+  registered
+  """
+  REGISTERED
 }
 
 input QuestionUpdateInput {
