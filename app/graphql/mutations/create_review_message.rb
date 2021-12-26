@@ -15,12 +15,8 @@ module Mutations
           user_id: current_user.id,
         })
 
-        question = record.question
-        question.update!(status: message[:feedback_type])
-
-        question.review_requests.where(user_id: current_user.id).each do |request|
-          request.update!(answered: question.user_id != current_user.id)
-        end
+        update_question_status(record.question, message[:feedback_type])
+        update_review_requests(record.question, message[:feedback_type])
 
         { review_message: record, errors: [] }
       rescue ActiveRecord::RecordInvalid => e
@@ -28,6 +24,30 @@ module Mutations
       end
     rescue Pundit::NotAuthorizedError => e
       { review_message: nil, errors: [e.message] }
+    end
+
+    private
+
+    def update_question_status(question, feedback_type)
+      new_question_status = case feedback_type
+      when "with_requested_changes"
+        "with_requested_changes"
+      when "approved"
+        "approved"
+      when "answered"
+        "waiting_review"
+      end
+
+      question.update!(status: new_question_status)
+    end
+
+    def update_review_requests(question, feedback_type)
+      return question.review_requests.update_all(answered: false) if feedback_type == "answered"
+
+      question
+        .review_requests
+        .where(user_id: current_user.id)
+        .update_all(answered: question.user_id != current_user.id)
     end
   end
 end

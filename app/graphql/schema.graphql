@@ -511,6 +511,7 @@ type ReviewMessageEdge {
 }
 
 enum ReviewMessageFeedbackType {
+  ANSWERED
   APPROVED
   WITH_REQUESTED_CHANGES
 }

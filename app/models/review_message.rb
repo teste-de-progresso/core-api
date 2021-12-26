@@ -28,7 +28,7 @@ class ReviewMessage < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
-  enumerize :feedback_type, in: %i[with_requested_changes approved]
+  enumerize :feedback_type, in: %i[with_requested_changes approved answered]
 
   validates :text, presence: true
 end
