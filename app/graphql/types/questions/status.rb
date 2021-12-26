@@ -6,7 +6,7 @@ module Types
       graphql_name "QuestionStatus"
 
       value "DRAFT", value: "draft"
-      value "PENDING", value: "pending"
+      value "WAITING_REVIEW", value: "waiting_review"
       value "APPROVED", value: "approved"
       value "REGISTERED", value: "registered"
     end

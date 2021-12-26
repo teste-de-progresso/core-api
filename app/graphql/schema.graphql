@@ -428,8 +428,8 @@ type QuestionEdge {
 enum QuestionStatus {
   APPROVED
   DRAFT
-  PENDING
   REGISTERED
+  WAITING_REVIEW
 }
 
 input QuestionUpdateInput {
