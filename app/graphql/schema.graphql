@@ -511,9 +511,9 @@ type ReviewMessageEdge {
 }
 
 enum ReviewMessageFeedbackType {
-  ANSWERED
-  APPROVED
-  WITH_REQUESTED_CHANGES
+  ANSWER
+  APPROVE
+  REQUEST_CHANGES
 }
 
 input ReviewMessageInput {

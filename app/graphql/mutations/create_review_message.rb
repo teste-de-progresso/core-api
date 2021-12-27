@@ -30,11 +30,11 @@ module Mutations
 
     def update_question_status(question, feedback_type)
       new_question_status = case feedback_type
-      when "with_requested_changes"
+      when "request_changes"
         "with_requested_changes"
-      when "approved"
+      when "approve"
         "approved"
-      when "answered"
+      when "answer"
         "waiting_review"
       end
 
@@ -42,7 +42,7 @@ module Mutations
     end
 
     def update_review_requests(question, feedback_type)
-      return question.review_requests.update_all(answered: false) if feedback_type == "answered"
+      return question.review_requests.update_all(answered: false) if feedback_type == "answer"
 
       question
         .review_requests
