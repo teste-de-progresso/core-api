@@ -19,7 +19,10 @@ module Mutations
 
       ActiveRecord::Base.transaction do
         record.save!
-        record.review_requests.create!(user_id: reviewer_user_id) if reviewer_user_id.present?
+
+        if reviewer_user_id.present? && question[:status] != "draft"
+          record.review_requests.create!(user_id: reviewer_user_id)
+        end
 
         { question: record, errors: [] }
       rescue ActiveRecord::RecordInvalid

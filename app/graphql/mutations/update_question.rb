@@ -17,7 +17,7 @@ module Mutations
       ActiveRecord::Base.transaction do
         record.update!(question)
 
-        if reviewer_user_id.present?
+        if reviewer_user_id.present? && question[:status] != "draft"
           review_request = record.review_requests.find_or_create_by!(
             user_id: reviewer_user_id
           )
