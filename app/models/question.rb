@@ -59,6 +59,12 @@ class Question < ApplicationRecord
     constant_alternatives
   ]
 
+  status.values.each do |value|
+    define_method "#{value}?" do
+      status == value
+    end
+  end
+
   def reviewer
     review_requests.last&.user
   end
